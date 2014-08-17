@@ -92,8 +92,8 @@ endif
 set background=dark
 if GUI() || &t_Co >= 256
   set t_Co=256
-  " colorscheme badwolf
-  colorscheme gruvbox
+  colorscheme badwolf
+  " colorscheme gruvbox
   " colorscheme pencil
   " color fixes
   hi Comment ctermfg=bg ctermbg=240
@@ -113,7 +113,7 @@ if GUI()
   elseif OSX()
     set gfn=Menlo:h13
   else
-    set gfn=Liberation\ Mono\ 11
+    set gfn=DejaVu\ Sans\ \ Mono\ 11
   endif
   set guioptions-=m
   nmap <F8> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
@@ -145,11 +145,11 @@ endif
 " Text, tab and indent related
 set autoindent    " Keep the indent when creating a new line
 set copyindent    " Copy the previous indentation on autoindent
-set expandtab     " Spaces instead of tabs for better cross-editor compatibility
-set shiftwidth=2  " Number of spaces to use in each autoindent step
+" set expandtab     " Spaces instead of tabs for better cross-editor compatibility
+set shiftwidth=4  " Number of spaces to use in each autoindent step
 set smarttab      " Use shiftwidth and softtabstop to insert or delete (on <BS>) blanks
-set softtabstop=2 " Number of spaces to skip or insert when <BS>ing or <Tab>ing
-set tabstop=2     " Two tab spaces
+set softtabstop=4 " Number of spaces to skip or insert when <BS>ing or <Tab>ing
+set tabstop=4     " Two tab spaces
 
 " Wrap
 set display=lastline         " don't display @ with long paragraphs

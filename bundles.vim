@@ -57,7 +57,7 @@ if count(g:bundle_groups, 'devel')
 		    \ 'Shougo/neosnippet-snippets'
 		    \ ]}
   " YouCompleteMe
-    " NeoBundle 'Valloric/YouCompleteMe', {'depends' : 'SirVer/ultisnips'}
+  NeoBundle 'Valloric/YouCompleteMe', {'depends' : 'SirVer/ultisnips'}
   NeoBundle 'AzizLight/TaskList.vim'
   NeoBundle 'Yggdroot/indentLine'
   NeoBundle 'godlygeek/tabular'
@@ -104,5 +104,3 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
-
-
