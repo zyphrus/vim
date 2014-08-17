@@ -34,7 +34,7 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 " No bell or flash wanted
 set novisualbell " No blinking
 set noerrorbells " No noise.
-set vb t_vb=     " disable any beeps or flashes on error
+set t_vb=     " disable any beeps or flashes on error
 if has('clipboard')
   if LINUX() " On Linux use + register for copy-paste
     set clipboard=unnamedplus
@@ -113,7 +113,7 @@ if GUI()
   elseif OSX()
     set gfn=Menlo:h13
   else
-    set gfn=DejaVu\ Sans\ \ Mono\ 11
+    set gfn=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
   endif
   set guioptions-=m
   nmap <F8> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
@@ -164,7 +164,7 @@ set wrapscan                 " Searches wrap around end of file
 let &sbr = nr2char(8618).' ' " Show ↪ at the beginning of wrapped lines
 
 " Search
-set hlsearch      " highlight all matches...
+set nohlsearch      " highlight all matches...
 set ignorecase      " select case-insenitiv search
 set incsearch       " ...and also during entering the pattern
 set magic           " change the way backslashes are used in search patterns

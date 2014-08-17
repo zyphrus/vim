@@ -8,10 +8,10 @@
 
 ### Mac:
 
-- [Homebrew][homebrew] - `ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"`
-- [MacVim][macvim] - `brew install macvim`
-- [Homesick][homesick] - `gem install homesick`
-- [ctags][ctags] - `brew install ctags-exuberant`
+- [Homebrew] - `ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"`
+- [MacVim] - `brew install macvim`
+- [Homesick] - `gem install homesick`
+- [ctags] - `brew install ctags-exuberant`
 
 # Vim
 
@@ -91,4 +91,8 @@ Reference to vim mappings.
 - [undotree](https://github.com/mbbill/undotree) - Graph Vim's undo tree so it is actually usable
 - [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
 - [vimCalc]
-- [vundle]
+
+## Additional Packages (Arch Linux)
+
+- ttf-powerline-fonts-git (AUR)
+- neobundle-git (AUR)
