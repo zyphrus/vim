@@ -48,7 +48,7 @@ Reference to vim mappings.
 - ` <S-TAB>     ` Back-Indent a line
 - ` +/-         ` Easy increment/decrement.
 - ` jj          ` Map escape key to jj.
-
+- ` <C-w>       ` Close current buffer
 ### Plugins
 
 - ` <Leader>B  ` buffergator
@@ -56,7 +56,7 @@ Reference to vim mappings.
 - ` <Leader>m  ` CtrlPMRU
 - ` <Leader>b  ` CtrlPBuffer
 - ` <Leader>u  ` Gundo
-- ` <Leader>nt ` NERDTree
+- ` <C-o>     ` NERDTree
 - ` <Leader>T  ` Tagbar
 - ` <C-e>      ` Emmet
 - ` <C-Space>  ` YouCompleteMe: Display preview window

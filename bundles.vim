@@ -47,13 +47,14 @@ if count(g:bundle_groups, 'general')
   NeoBundle 'tpope/vim-surround'
   NeoBundle 'tpope/vim-unimpaired'
   NeoBundle 'yonchu/accelerated-smooth-scroll'
-  NeoBundle 'Shougo/vimfiler', {'depends' : 'Shougo/unite.vim' }
+  NeoBundle 'scrooloose/nerdtree'
 endif
+
 " DEVELOPER
 if count(g:bundle_groups, 'devel')
   " NeoComplete
 		NeoBundle 'Shougo/neocomplete', {'depends' : [
-        \ 'Shougo/neosnippet',
+        \ 'Shouto/neosnippet',
 		    \ 'Shougo/neosnippet-snippets'
 		    \ ]}
   " YouCompleteMe

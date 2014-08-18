@@ -96,7 +96,7 @@ vmap <A-k> :m-2<CR>gv
 " move between buffers
 nmap <C-S-TAB> :bprev<CR>
 nmap <C-TAB> :bnext<CR>
-
+nmap <C-W> :bdelete<CR>
 " switch to the directory of the open buffer
 map <Leader>cd :cd %:p:h<cr>
 

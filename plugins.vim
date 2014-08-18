@@ -18,6 +18,7 @@
   let g:airline#extensions#hunks#enabled = 1
   let g:airline#extensions#ctrlp#show_adjacent_modes = 1
   let g:airline#extensions#whitespace#enabled = 1
+
   " let g:airline_theme='airlineish'
   let g:airline_theme='badwolf'
   if GUI()
@@ -155,11 +156,26 @@
   let g:undotree_SetFocusWhenToggle=1
 
 " vimfiler
-  let g:vimfiler_as_default_explorer = 1
-  let g:vimfiler_split_action = "right"
-  nmap <silent> <C-o> :VimFilerBufferDir<CR>
+"  let g:vimfiler_as_default_explorer = 1
+"  let g:vimfiler_split_action = "right"
+"  nmap <silent> <C-o> :VimFilerBufferDir<CR>
 
-  let neocomplete_readme=expand('~/.vim/bundle/neocomplete/README.md')
+" NERDTree
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+  map <C-o> :NERDTreeToggle<CR>
+  let g:NERDTreeWinPos = "right"
+  let g:NERDTreeShowBookmarks = 1
+  let g:NERDTreeWinSize = 40
+  let g:NERDTreeChristmasTree = 0
+  let g:NERDTreeCaseSensitiveSort = 1
+  let g:NERDTreeQuitOnOpen = 1
+  let g:NERDTreeShowHidden = 1
+  let g:NERDTreeMouseMode = 2
+  let g:NERDTreeIgnore=[
+		\'\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
+		\ '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$' ]
+
+let neocomplete_readme=expand('~/.vim/bundle/neocomplete/README.md')
   if WINDOWS() || filereadable(neocomplete_readme)
   " neocomplete
     set completeopt-=preview
