@@ -14,11 +14,13 @@
   let g:airline_inactive_collapse=1
   let g:bufferline_echo = 0
   let g:airline#extensions#syntastic#enabled = 1
-  let g:airline#extensions#bufferline#enabled = 1
   let g:airline#extensions#hunks#enabled = 1
   let g:airline#extensions#ctrlp#show_adjacent_modes = 1
   let g:airline#extensions#whitespace#enabled = 1
+  let g:airline#extensions#tagbar#enabled = 1
+  let g:airline#extensions#tabline#enabled = 1
 
+  let g:airline_section_c = ''
   " let g:airline_theme='airlineish'
   let g:airline_theme='badwolf'
   if GUI()
@@ -41,6 +43,7 @@
   let g:buffergator_suppress_keymaps = 1
   let g:buffergator_viewport_split_policy = "R"
   let g:buffergator_autoexpand_on_split = 0
+  let g:buffergator_sort_regime = "basename"
 
 " coffeescript
   let coffee_indent_keep_current = 1
@@ -138,6 +141,12 @@
   let g:syntastic_error_symbol='✗'
   let g:syntastic_warning_symbol='⚠'
 
+" tagbar
+  nmap <Leader>tb :TagbarOpenAutoClose<CR>
+  let g:tagbar_indent = 1
+  let g:tarbar_singleclick = 1
+
+
 " tabularize
   vmap <Leader>a=  :Tabularize /=<CR>
   vmap <Leader>a#  :Tabularize /#<CR>
@@ -230,6 +239,8 @@ let neocomplete_readme=expand('~/.vim/bundle/neocomplete/README.md')
     let g:ycm_autoclose_preview_window_after_completion = 1
     let g:ycm_autoclose_preview_window_after_insertion = 1
     let g:ycm_seed_identifiers_with_syntax = 1
+    let g:ycm_min_num_of_chars_for_completion = 3
+    let g:ycm_auto_trigger = 0
     let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
     let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
     if GUI()

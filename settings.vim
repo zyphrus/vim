@@ -99,7 +99,8 @@ if GUI() || &t_Co >= 256
   hi Comment ctermfg=bg ctermbg=240
   hi Comment guifg=#585858 guibg=bg
 else
-  set t_Co=8
+  set t_Co=256
+  colorscheme badwolf
   set t_Sf=^[[3%p1%dm
   set t_Sb=^[[4%p1%dm
 endif
