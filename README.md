@@ -48,7 +48,7 @@ Reference to vim mappings.
 - ` <S-TAB>     ` Back-Indent a line
 - ` +/-         ` Easy increment/decrement.
 - ` jj          ` Map escape key to jj.
-- ` <C-w>       ` Close current buffer
+- ` <Leader>bd  ` Close current buffer
 ### Plugins
 
 - ` <Leader>B  ` buffergator
