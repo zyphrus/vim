@@ -99,6 +99,11 @@
 " emmet
   let g:user_emmet_leader_key = '<C-e>'
 
+" TaskList
+  let g:tlWindowPosition = 1
+  let g:tlRememberPosition = 0
+  map <silent> <leader>tl <ESC>:TaskList<CR>
+
 " fugitive
   nmap <silent> <leader>gs :Gstatus<CR>
   nmap <silent> <leader>gd :Gdiff<CR>
@@ -142,7 +147,7 @@
   let g:syntastic_warning_symbol='⚠'
 
 " tagbar
-  nmap <Leader>tb :TagbarOpenAutoClose<CR>
+  nmap <C-t> :TagbarOpenAutoClose<CR>
   let g:tagbar_indent = 1
   let g:tarbar_singleclick = 1
 
@@ -164,12 +169,7 @@
   " If undotree is opened, it is likely one wants to interact with it.
   let g:undotree_SetFocusWhenToggle=1
 
-" vimfiler
-"  let g:vimfiler_as_default_explorer = 1
-"  let g:vimfiler_split_action = "right"
-"  nmap <silent> <C-o> :VimFilerBufferDir<CR>
-
-" NERDTree
+" NERD Tree
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
   map <C-o> :NERDTreeToggle<CR>
   let g:NERDTreeWinPos = "right"
@@ -180,74 +180,31 @@
   let g:NERDTreeQuitOnOpen = 1
   let g:NERDTreeShowHidden = 1
   let g:NERDTreeMouseMode = 2
+  let g:NERDTreeDirArrows = 1
   let g:NERDTreeIgnore=[
-		\'\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
-		\ '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$' ]
+  \'\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
+  \ '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$' ]
 
-let neocomplete_readme=expand('~/.vim/bundle/neocomplete/README.md')
-  if WINDOWS() || filereadable(neocomplete_readme)
-  " neocomplete
-    set completeopt-=preview
-    let g:neocomplete#enable_at_startup = 1
-    let g:neocomplete#enable_smart_case = 1
-    let g:neocomplete#enable_auto_delimiter = 1
-    let g:neocomplete#max_list = 15
-    let g:neocomplete#force_overwrite_completefunc = 1
-    " Define keyword.
-    if !exists('g:neocomplete#keyword_patterns')
-        let g:neocomplete#keyword_patterns = {}
-    endif
-    let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+ " ultisnips
+  let g:UltiSnipsExpandTrigger = "<Tab>"
+  let g:UltiSnipsJumpForwardTrigger = "<Tab>"
+  let g:UltiSnipsJumpBackwardTrigger = "<S-tab>"
+  let g:UltiSnipsListSnippets="<C-Tab>"
 
-    " SuperTab like snippets behavior.
-    imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-    \ "\<Plug>(neosnippet_expand_or_jump)"
-    \: pumvisible() ? "\<C-n>" : "\<TAB>"
-    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-    \ "\<Plug>(neosnippet_expand_or_jump)"
-    \: "\<TAB>"
-
-    " Some convenient mappings
-    imap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
-    imap <expr><C-k>  pumvisible() ? "\<C-p>" : "\<C-k>"
-
-    imap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
-    imap <expr><C-j>  pumvisible() ? "\<C-n>" : "\<C-j>"
-
-    imap <expr><Esc> pumvisible() ? "\<C-y>\<Esc>" : "\<Esc>"
-    imap <expr><CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
-
-    " Enable heavy omni completion.
-    if !exists('g:neocomplete#sources#omni#input_patterns')
-      let g:neocomplete#sources#omni#input_patterns = {}
-    endif
-    let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-    let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-    let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-    let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-    let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+" YouCompleteMe
+  let g:ycm_register_as_syntastic_checker = 1
+  let g:ycm_add_preview_to_completeopt = 1
+  let g:ycm_autoclose_preview_window_after_completion = 1
+  let g:ycm_autoclose_preview_window_after_insertion = 1
+  let g:ycm_seed_identifiers_with_syntax = 1
+  let g:ycm_min_num_of_chars_for_completion = 3
+  let g:ycm_auto_trigger = 0
+  let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+  let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+  if GUI()
+    let g:ycm_key_invoke_completion = '<C-Space>'
   else
-  " ultisnips
-    let g:UltiSnipsExpandTrigger = "<Tab>"
-    let g:UltiSnipsJumpForwardTrigger = "<Tab>"
-    let g:UltiSnipsJumpBackwardTrigger = "<S-tab>"
-    let g:UltiSnipsListSnippets="<C-Tab>"
-
-  " YouCompleteMe
-    let g:ycm_register_as_syntastic_checker = 1
-    let g:ycm_add_preview_to_completeopt = 1
-    let g:ycm_autoclose_preview_window_after_completion = 1
-    let g:ycm_autoclose_preview_window_after_insertion = 1
-    let g:ycm_seed_identifiers_with_syntax = 1
-    let g:ycm_min_num_of_chars_for_completion = 3
-    let g:ycm_auto_trigger = 0
-    let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
-    let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
-    if GUI()
-      let g:ycm_key_invoke_completion = '<C-Space>'
-    else
-      let g:ycm_key_invoke_completion = '<C-@>'
-    endif
+    let g:ycm_key_invoke_completion = '<C-@>'
   endif
 
   " For snippet_complete marker.

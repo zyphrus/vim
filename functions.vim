@@ -1,18 +1,10 @@
 " FUNCTIONS
 function! ToggleSpell()
   if &spell
-    if &spelllang == "pt"
-      set spelllang=pt,en
-      echo "toggle spell" &spelllang
-    elseif &spelllang == "pt,en"
-      set spelllang=en
-      echo "toggle spell" &spelllang
-    else
       set spell!
       echo "toggle spell off"
-    endif
   else
-    set spelllang=pt
+    set spelllang=en
     set spell!
     echo "toggle spell" &spelllang
   endif

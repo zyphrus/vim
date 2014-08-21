@@ -39,6 +39,11 @@ if has("autocmd")
   " Workaround broken colour highlighting in Haskell
   au FileType haskell setlocal nospell
 
+  " Astyle
+  if executable("astyle")
+	au BufNewFile,BufRead *.c,*.cpp,*.h,*.hpp,*.java,*.cs set formatprg=astyle\ -T4A3
+  endif
+
   " Stupid shift key fixes
   if has("user_commands")
       command! -bang -nargs=* -complete=file E e<bang> <args>

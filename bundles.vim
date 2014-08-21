@@ -29,23 +29,23 @@ endif
 " GENERAL
 if count(g:bundle_groups, 'general')
   " NeoBundle 'gregsexton/VimCalc'
-  NeoBundle 'hotoo/calendar-vim'
-  NeoBundle 'Lokaltog/vim-easymotion'
+  " NeoBundle 'hotoo/calendar-vim'
+  " NeoBundle 'Lokaltog/vim-easymotion'
   NeoBundle 'Stormherz/tablify'
   NeoBundle 'bling/vim-airline'
   NeoBundle 'paranoida/vim-airlineish'
   NeoBundle 'hwrod/interactive-replace'
   NeoBundle 'jeetsukumaran/vim-buffergator'
-  NeoBundle 'kien/ctrlp.vim'
+  " NeoBundle 'kien/ctrlp.vim'
   NeoBundle 'mbbill/undotree'
   NeoBundle 'mhinz/vim-startify'
-  NeoBundle 'mtth/locate.vim'
-  NeoBundle 'tpope/vim-vinegar'
-  NeoBundle 'tacahiroy/ctrlp-funky'
+  " NeoBundle 'mtth/locate.vim'
+  " NeoBundle 'tpope/vim-vinegar'
+  " NeoBundle 'tacahiroy/ctrlp-funky'
   NeoBundle 'kris89/vim-multiple-cursors'
-  NeoBundle 'tpope/vim-surround'
-  NeoBundle 'tpope/vim-unimpaired'
-  NeoBundle 'yonchu/accelerated-smooth-scroll'
+  " NeoBundle 'tpope/vim-surround'
+  " NeoBundle 'tpope/vim-unimpaired'
+  " NeoBundle 'yonchu/accelerated-smooth-scroll'
   NeoBundle 'scrooloose/nerdtree'
   NeoBundle 'mkitt/tabline.vim'
 endif
@@ -53,16 +53,16 @@ endif
 " DEVELOPER
 if count(g:bundle_groups, 'devel')
   " NeoComplete
-	" NeoBundle 'Shougo/neocomplete', {'depends' : [
-	"  \ 'Shouto/neosnippet',
-	"  \ 'Shougo/neosnippet-snippets'
-    "\ ]}
+  "NeoBundle 'Shougo/neocomplete', {'depends' : [
+  "    \ 'Shougo/context_filetype.vim',
+  "    \ 'Shougo/neosnippet.vim'
+  "  \ ]}
   " YouCompleteMe
   NeoBundle 'Valloric/YouCompleteMe', {'depends' : 'SirVer/ultisnips'}
   NeoBundle 'AzizLight/TaskList.vim'
   NeoBundle 'Yggdroot/indentLine'
   NeoBundle 'godlygeek/tabular'
-  NeoBundle 'Raimondi/delimitMate'
+  " NeoBundle 'Raimondi/delimitMate'
   NeoBundle 'kien/rainbow_parentheses.vim'
   NeoBundle 'tpope/vim-commentary'
   NeoBundle 'scrooloose/syntastic'
@@ -70,6 +70,7 @@ if count(g:bundle_groups, 'devel')
   NeoBundle 'mhinz/vim-signify'
   NeoBundle 'gcmt/wildfire.vim'
   NeoBundle 'majutsushi/tagbar'
+  NeoBundle 'a.vim'
   if executable('ctags')
     NeoBundle 'xolox/vim-easytags', {'depends' : 'xolox/vim-misc'}
   endif
@@ -82,9 +83,9 @@ if count(g:bundle_groups, 'web_devel')
   NeoBundle 'guileen/simple-javascript-indenter'
   NeoBundle 'kchmck/vim-coffee-script'
   NeoBundle 'mattn/emmet-vim'
-  NeoBundle 'mustache/vim-mustache-handlebars'
+  " NeoBundle 'mustache/vim-mustache-handlebars'
   NeoBundle 'othree/html5.vim'
-  NeoBundle 'paulyg/Vim-PHP-Stuff'
+  " NeoBundle 'paulyg/Vim-PHP-Stuff'
   NeoBundle 'tpope/vim-bundler'
   NeoBundle 'tpope/vim-haml'
   NeoBundle 'tpope/vim-markdown'
