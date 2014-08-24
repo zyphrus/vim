@@ -27,7 +27,7 @@ Reference to vim mappings.
 - ` <Leader>cl  ` Calculate the value in one line.
 - ` <Leader>cd  ` Switch to the directory of the open buffer.
 - ` <Leader>cfg ` Fast editing of .vimrc.
-- ` <Leader>L   ` Enable/Disable list.
+- ` <Leader>l   ` Toggle EOL.
 - ` <Leader>/   ` Comment/Uncoment Code.
 - ` <Leader>d   ` Enable/Disable dual mode view.
 - ` <Leader>al  ` Quick aligning to left.
@@ -45,18 +45,19 @@ Reference to vim mappings.
 - ` <S-C-TAB>   ` Move to previews buffer
 - ` <TAB>       ` Indent a line
 - ` <S-TAB>     ` Back-Indent a line
-- ` <S-TAB>     ` Back-Indent a line
 - ` +/-         ` Easy increment/decrement.
 - ` jj          ` Map escape key to jj.
 - ` <Leader>bd  ` Close current buffer
+- ` <Leader>sp  ` Switch order of parameters
+
 ### Plugins
 
-- ` <Leader>B  ` buffergator
+- ` <Leader>b  ` buffergator
 - ` <Leader>ca ` calendar
 - ` <Leader>m  ` CtrlPMRU
 - ` <Leader>b  ` CtrlPBuffer
 - ` <Leader>u  ` Gundo
-- ` <C-o>     ` NERDTree
+- ` <C-o>      ` NERDTree
 - ` <Leader>T  ` Tagbar
 - ` <C-e>      ` Emmet
 - ` <C-Space>  ` YouCompleteMe: Display preview window

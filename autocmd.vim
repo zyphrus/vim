@@ -8,6 +8,7 @@ if has("autocmd")
     au BufEnter *.php setl ts=4 sw=4 sts=4
     au BufEnter *.js setl ts=2 sw=2 sts=2
     au BufEnter *.html setl ts=4 sw=4 sts=4
+    au BufEnter *.vim setl ts=2 sw=2 sts=2 expandtab
     au BufEnter *.tex setl wrap tw=79 fo=tcqor
     au BufEnter *.[ch] setl cindent
     au BufEnter *.[ch]pp setl cindent
@@ -21,7 +22,7 @@ if has("autocmd")
   " Automatically removing all trailing whitespace
   autocmd BufWritePre * :call StripTrailingWhitespace()
 
-  " Save on FocusLost
+	" Save on FocusLost
   au FocusLost * :silent! wall " Save on FocusLost
   au FocusLost * call feedkeys("\<C-\>\<C-n>") " Return to normal mode on FocustLost
 

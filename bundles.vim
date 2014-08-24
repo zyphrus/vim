@@ -71,6 +71,7 @@ if count(g:bundle_groups, 'devel')
   NeoBundle 'gcmt/wildfire.vim'
   NeoBundle 'majutsushi/tagbar'
   NeoBundle 'a.vim'
+  NeoBundle 'vim-scripts/swap-parameters'
   if executable('ctags')
     NeoBundle 'xolox/vim-easytags', {'depends' : 'xolox/vim-misc'}
   endif

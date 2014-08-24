@@ -93,16 +93,9 @@ set background=dark
 if GUI() || &t_Co >= 256
   set t_Co=256
   colorscheme badwolf
-  " colorscheme gruvbox
-  " colorscheme pencil
-  " color fixes
-  hi Comment ctermfg=bg ctermbg=240
-  hi Comment guifg=#585858 guibg=bg
 else
   set t_Co=256
   colorscheme badwolf
-  set t_Sf=^[[3%p1%dm
-  set t_Sb=^[[4%p1%dm
 endif
 
 " GUI options
@@ -118,7 +111,7 @@ if GUI()
   endif
   set guioptions-=m
   nmap <F8> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
-  set lines=50 columns=80
+  set lines=50 columns=130
 endif
 
 " Language Settings

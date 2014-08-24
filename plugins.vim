@@ -212,7 +212,11 @@
     set conceallevel=2 concealcursor=i
   endif
 
-  " Enable omni completion.
+" Swap parameters
+  nmap <leader>sp <esc>=gb<esc>
+
+
+" Enable omni completion.
   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
   autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
