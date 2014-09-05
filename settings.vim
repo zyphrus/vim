@@ -1,5 +1,6 @@
 " SETTINGS
 " General
+set nocompatible
 set title                          " change the terminal's title
 set history=1000                   " keep 100 lines of command line history
 set autochdir                      " Change directory to the current buffer when opening files.
@@ -19,7 +20,6 @@ set switchbuf=useopen              " reveal already opened files from the quickf
 set ttyfast                        " smoother changes
 set viminfo='20,\"80               " read/write a .viminfo file, don't store more
 set virtualedit=onemore            " Allow for cursor beyond last character
-" set shortmess+=filmnrxoOtT         " Abbrev. of messages (avoids 'hit enter')
 set cursorline
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 " vertical/horizontal scroll off settings
@@ -111,7 +111,7 @@ if GUI()
   endif
   set guioptions-=m
   nmap <F8> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
-  set lines=50 columns=130
+  set lines=50 columns=128
 endif
 
 " Language Settings
@@ -158,7 +158,7 @@ set wrapscan                 " Searches wrap around end of file
 let &sbr = nr2char(8618).' ' " Show ↪ at the beginning of wrapped lines
 
 " Search
-set nohlsearch      " highlight all matches...
+set hlsearch        " highlight all matches...
 set ignorecase      " select case-insenitiv search
 set incsearch       " ...and also during entering the pattern
 set magic           " change the way backslashes are used in search patterns

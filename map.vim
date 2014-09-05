@@ -73,7 +73,7 @@ nmap Q gqap
 vmap > >gv
 vmap < <gv
 
-" Easier increment/decrement
+" Easier increment/decrements
 nmap + <C-a>
 nmap - <C-x>
 
@@ -104,6 +104,8 @@ map <Leader>cd :cd %:p:h<cr>
 " set text wrapping toggles
 nmap <silent> tw :set invwrap<CR>:set wrap?<CR>
 
+" toggle hlsearch
+nmap <silent> th :set invhlsearch<CR>:set hlsearch?<CR>
 " Map <Leader>ff to display all lines with keyword under cursor
 " and ask which one to jump to
 nmap <F12> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>

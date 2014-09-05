@@ -73,7 +73,7 @@ function! MyFoldText()
   let foldedlinecount = v:foldend - v:foldstart
 
   " expand tabs into spaces
-  let onetab = strpart('          ', 0, &tabstop)
+  let onetab = strpart('    ', 0, &tabstop)
   let line = substitute(line, '\t', onetab, 'g')
 
   let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
