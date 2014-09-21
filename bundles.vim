@@ -37,6 +37,8 @@ if count(g:bundle_groups, 'general')
   NeoBundle 'scrooloose/nerdtree'
   NeoBundle 'mkitt/tabline.vim'
   NeoBundle 'Shogou/vimproc.vim'
+  NeoBundle 'kien/ctrlp.vim'
+  NeoBundle 'tacahiroy/ctrlp-funky'
 endif
 
 " DEVELOPER
@@ -46,6 +48,7 @@ if count(g:bundle_groups, 'devel')
         \ 'Shougo/context_filetype.vim',
         \ 'Shougo/neosnippet.vim',
         \ 'Shougo/neosnippet-snippets'
+        \ 'honza/vim-snippets'
         \ ]}
   NeoBundle 'AzizLight/TaskList.vim'
   NeoBundle 'Yggdroot/indentLine'

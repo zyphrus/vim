@@ -97,6 +97,40 @@ nmap <C-t> :TagbarOpenAutoClose<CR>
 let g:tagbar_indent = 1
 let g:tarbar_singleclick = 1
 
+" ctrlp
+let g:ctrlp_cache_dir = $HOME.'/.vim/.ctrlp_cache'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_extensions = ['funky']
+
+nmap <silent>cp :CtrlPMixed<CR>
+nmap <silent>cm :CtrlPMRUFiles<CR>
+nmap <silent>cf :CtrlPFunky<CR>
+nmap <silent>cl :CtrlPLine<CR>
+nmap <silent>cb :CtrlPBuffer<CR>
+nmap <silent>ct :CtrlPBufTag<CR>
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\.git$\|\.hg$\|\.svn$',
+  \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+
+" On Windows use "dir" as fallback command.
+if WINDOWS()
+  let s:ctrlp_fallback = 'dir %s /-n /b /s /a-d'
+elseif executable('ag')
+  let s:ctrlp_fallback = 'ag %s --nocolor -l -g ""'
+elseif executable('ack')
+  let s:ctrlp_fallback = 'ack %s --nocolor -f'
+else
+  let s:ctrlp_fallback = 'find %s -type f'
+endif
+let g:ctrlp_user_command = {
+  \ 'types': {
+  \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
+  \ 2: ['.hg', 'hg --cwd %s locate -i .'],
+  \ },
+  \ 'fallback': s:ctrlp_fallback
+  \ }
+
 
 " tabularize
 vmap <Leader>a=  :Tabularize /=<CR>
@@ -131,13 +165,18 @@ let g:NERDTreeIgnore=[
       \'\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
       \ '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$' ]
 
-" Neocomplete
-set completeopt-=preview
+" neocomplete
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#enable_auto_delimiter = 1
 let g:neocomplete#max_list = 15
 let g:neocomplete#force_overwrite_completefunc = 1
+let g:neocomplete#use_vimproc = 1
+let g:neocomplete#disable_auto_complete = 1
+
+"Use honza's snippets.
+let g:neosnippet#snippets_directory=expand($HOME.'/.vim/bundle/vim-snippets/snippets')
+
 " Define keyword.
 if !exists('g:neocomplete#keyword_patterns')
   let g:neocomplete#keyword_patterns = {}
@@ -152,21 +191,54 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
       \: "\<TAB>"
 
 " Some convenient mappings
-imap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
 imap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-imap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
 imap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-imap <expr><Esc> pumvisible() ? "\<C-y>\<Esc>" : "\<Esc>"
-imap <expr><CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
+imap <expr><C-space> pumvisible() ? "\<C-n>" : "\<C-space>"
+"imap <expr><CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
+" <CR>: close popup
+
+function! SmartReturn()
+  if pumvisible()
+    if neosnippet#expandable()
+      let expand = "\<Plug>(neosnippet_expand)"
+      return expand . neocomplete#smart_close_popup()
+    else
+      return neocomplete#smart_close_popup()
+    endif
+  else
+    return "\<CR>"
+  endif
+endfunction
+
+" <CR> close popup and save indent or expand snippet
+imap <expr> <CR> SmartReturn()
+
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
-let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+
+let g:neocomplete#sources#omni#input_patterns.c='[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
+let g:neocomplete#sources#omni#input_patterns.cpp='[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+let g:neocomplete#sources#omni#input_patterns.xml='<[^>]*'
+let g:neocomplete#sources#omni#input_patterns.html='<[^>]*'
+let g:neocomplete#sources#omni#input_patterns.markdown='<[^>]*'
+let g:neocomplete#sources#omni#input_patterns.css='^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
+let g:neocomplete#sources#omni#input_patterns.less='^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
+let g:neocomplete#sources#omni#input_patterns.javascript='[^. \t]\.\%(\h\w*\)\?'
+let g:neocomplete#sources#omni#input_patterns.json='[^. \t]\.\%(\h\w*\)\?'
+let g:neocomplete#sources#omni#input_patterns.python='[^. *\t]\.\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.php='[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+let g:neocomplete#sources#omni#input_patterns.python3='[^. *\t]\.\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.go='\h\w*\%.'
+let g:neocomplete#sources#omni#input_patterns.perl='\h\w*->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.java='\%(\h\w*\|)\)\.'
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
 
 " syntastic
 let g:syntastic_enable_balloons = 1
