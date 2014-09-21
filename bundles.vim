@@ -47,7 +47,7 @@ if count(g:bundle_groups, 'devel')
   NeoBundle 'Shougo/neocomplete', {'depends' : [
         \ 'Shougo/context_filetype.vim',
         \ 'Shougo/neosnippet.vim',
-        \ 'Shougo/neosnippet-snippets'
+        \ 'Shougo/neosnippet-snippets',
         \ 'honza/vim-snippets'
         \ ]}
   NeoBundle 'AzizLight/TaskList.vim'
