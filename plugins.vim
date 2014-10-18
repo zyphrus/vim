@@ -14,19 +14,17 @@ let g:airline#extensions#tabline#enabled = 1
 
 let g:airline_section_c = ''
 let g:airline_theme='molokai'
-if GUI()
-  if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-  endif
-  if !exists('g:airline_powerline_fonts')
-    let g:airline_left_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_symbols.branch = ''
-    let g:airline_symbols.linenr = ''
-  else
-    let g:airline_left_sep = '▶'
-    let g:airline_right_sep = '◀'
-  endif
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+if !exists('g:airline_powerline_fonts')
+  let g:airline_left_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.linenr = ''
+else
+  let g:airline_left_sep = '▶'
+  let g:airline_right_sep = '◀'
 endif
 
 " Unite

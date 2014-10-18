@@ -90,13 +90,9 @@ if &t_Co > 2 || GUI()
 endif
 " default colorscheme
 set background=dark
-if GUI() || &t_Co >= 256
-  set t_Co=256
-  let g:rehash256 = 1
-  colorscheme molokai
-else
-  colorscheme badwolf
-endif
+set t_Co=256
+let g:rehash256 = 1
+colorscheme molokai
 
 " GUI options
 if GUI()
