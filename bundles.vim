@@ -22,7 +22,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " NeoBundle Groups
 " List only the plugin groups you will use
 if !exists('g:bundle_groups')
-  let g:bundle_groups=['general', 'devel', 'web_devel', 'colorscheme']
+  let g:bundle_groups=['general', 'devel', 'web_devel', 'colorscheme', 'latex']
 endif
 
 " NeoBundles here:
@@ -79,9 +79,15 @@ if count(g:bundle_groups, 'web_devel')
   NeoBundle 'tpope/vim-rails'
   NeoBundle 'vim-ruby/vim-ruby'
 endif
+
+" LATEX
+if count(g:bundle_groups, 'latex')
+  NeoBundle 'gerw/vim-latex-suite'
+endif
 " COLORSCHEME
 if count(g:bundle_groups, 'colorscheme')
   NeoBundle 'altercation/vim-colors-solarized'
+  NeoBundle 'tomasr/molokai'
   NeoBundle 'morhetz/gruvbox'
   NeoBundle 'sjl/badwolf'
 endif

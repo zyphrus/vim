@@ -92,9 +92,9 @@ endif
 set background=dark
 if GUI() || &t_Co >= 256
   set t_Co=256
-  colorscheme badwolf
+  let g:rehash256 = 1
+  colorscheme molokai
 else
-  set t_Co=256
   colorscheme badwolf
 endif
 
@@ -107,7 +107,7 @@ if GUI()
   elseif OSX()
     set gfn=Menlo:h13
   else
-    set gfn=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
+    set gfn=Literation\ Mono\ Powerline\ 11
   endif
   set guioptions-=m
   nmap <F8> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>

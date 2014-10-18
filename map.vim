@@ -25,7 +25,7 @@ nmap <silent> <Leader>l :set nolist!<CR>
 nmap <silent><Leader>/ :nohls<CR>
 
 " Map escape key to jj or <Leader>e
-imap jj <ESC>
+imap <Leader>ee <ESC>
 
 " Sudo to write
 cmap w!! :w !sudo tee % >/dev/null
