@@ -101,3 +101,15 @@ function! StripTrailingWhitespace()
   let @/=_s
   call cursor(l, c)
 endfunction
+
+function! ToggleColorColumn()
+  if &colorcolumn != 80
+    set colorcolumn=80
+    highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
+    match OverLength /\%81v.\+/
+  else
+    set colorcolumn=0
+    highlight clear OverLength
+  endif
+endfunction
+map <silent><leader>tc :call ToggleColorColumn()<cr>
