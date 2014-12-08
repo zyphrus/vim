@@ -6,13 +6,10 @@ let g:mapleader=","
 nmap <silent> <F4> :set invpaste<CR>:set paste?<CR>
 imap <silent> <F4> <ESC>:set invpaste<CR>:set paste?<CR>
 
-" Session List
+" Session controls
 nmap <leader>sl :SessionList<CR>
 nmap <leader>ss :SessionSave<CR>
 nmap <leader>sc :SessionClose<CR>
-
-" I can type :help on my own, thanks.
-map <F1> <ESC>
 
 " spacebar create/open/close folding
 nmap <silent> <Space> za
@@ -93,19 +90,29 @@ nmap <C-k> <c-w>W
 vmap <A-j> :m'>+<CR>gv
 vmap <A-k> :m-2<CR>gv
 
-" move between buffers
-nmap <C-S-TAB> :bprev<CR>
-nmap <C-TAB> :bnext<CR>
+" move between tabs
+nmap <silent> <C-tab> :tabnext<CR>
+nmap <silent> <C-S-tab> :tabprevious<CR>
+nmap <C-n> :tabnew<CR>
+nmap <C-m> :tabclose<CR>
+
+" buffers
 nmap <Leader>bd :bdelete<CR>
+nmap <Leader>bn :bnext<CR>
+nmap <Leader>bp :bprevious<CR>
 
 " switch to the directory of the open buffer
 map <Leader>cd :cd %:p:h<cr>
 
 " set text wrapping toggles
-nmap <silent> tw :set invwrap<CR>:set wrap?<CR>
+nmap <silent>tw :set invwrap<CR>:set wrap?<CR>
+
+" toggle whitespace
+nmap <silent>tt :set list!<CR>
 
 " toggle hlsearch
-nmap <silent> th :set invhlsearch<CR>:set hlsearch?<CR>
+nmap <silent>th :set invhlsearch<CR>:set hlsearch?<CR>
+
 " Map <Leader>ff to display all lines with keyword under cursor
 " and ask which one to jump to
 nmap <F12> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>

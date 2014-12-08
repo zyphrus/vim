@@ -22,7 +22,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " NeoBundle Groups
 " List only the plugin groups you will use
 if !exists('g:bundle_groups')
-  let g:bundle_groups=['general', 'devel', 'web_devel', 'colorscheme', 'latex']
+  let g:bundle_groups=['general', 'devel', 'web_devel', 'colorscheme', 'cpp-ide']
 endif
 
 " NeoBundles here:
@@ -31,25 +31,37 @@ if count(g:bundle_groups, 'general')
   NeoBundle 'Stormherz/tablify'
   NeoBundle 'bling/vim-airline'
   NeoBundle 'paranoida/vim-airlineish'
+  NeoBundle 'kien/ctrlp.vim'
+  NeoBundle 'tacahiroy/ctrlp-funky'
+  NeoBundle 'troydm/easybuffer.vim'
   NeoBundle 'Shougo/unite.vim'
+  NeoBundle 'Shougo/unite-outline'
   NeoBundle 'mbbill/undotree'
   NeoBundle 'mhinz/vim-startify'
   NeoBundle 'scrooloose/nerdtree'
-  NeoBundle 'mkitt/tabline.vim'
-  NeoBundle 'Shougo/vimproc.vim'
-  NeoBundle 'kien/ctrlp.vim'
-  NeoBundle 'tacahiroy/ctrlp-funky'
+  NeoBundle 'scrooloose/nerdcommenter'
+  NeoBundle 'Shougo/vimproc.vim', {
+        \ 'build' : {
+        \     'windows' : 'tools\\update-dll-mingw',
+        \     'cygwin'  : 'make -f make_cygwin.mak',
+        \     'mac'     : 'make -f make_mac.mak',
+        \     'linux'   : 'make',
+        \     'unix'    : 'gmake',
+        \ },}
 endif
 
 " DEVELOPER
 if count(g:bundle_groups, 'devel')
-  " NeoComplete
-  NeoBundle 'Shougo/neocomplete', {'depends' : [
-        \ 'Shougo/context_filetype.vim',
-        \ 'Shougo/neosnippet.vim',
-        \ 'Shougo/neosnippet-snippets',
-        \ 'honza/vim-snippets'
-        \ ]}
+  if WINDOWS()
+    " NeoComplete
+    NeoBundle 'Shougo/neocomplete'
+    NeoBundle 'Shougo/neosnippet'
+    NeoBundle 'Shougo/neosnippet-snippets'
+  else
+    " YouCompleteMe
+    NeoBundle 'Valloric/YouCompleteMe'
+    NeoBundle 'SirVer/ultisnips'
+  endif
   NeoBundle 'AzizLight/TaskList.vim'
   NeoBundle 'Yggdroot/indentLine'
   NeoBundle 'godlygeek/tabular'    " Aligns text
@@ -61,6 +73,7 @@ if count(g:bundle_groups, 'devel')
   NeoBundle 'mhinz/vim-signify'
   NeoBundle 'majutsushi/tagbar'
   NeoBundle 'vim-scripts/swap-parameters'
+
   if executable('ctags')
     NeoBundle 'xolox/vim-easytags', {'depends' : 'xolox/vim-misc'}
   endif
@@ -80,16 +93,15 @@ if count(g:bundle_groups, 'web_devel')
   NeoBundle 'vim-ruby/vim-ruby'
 endif
 
-" LATEX
-if count(g:bundle_groups, 'latex')
-  NeoBundle 'gerw/vim-latex-suite'
+" CPP-IDE
+if count(g:bundle_groups, 'cpp-ide')
+  NeoBundle 'vim-scripts/c.vim'
+  NeoBundle 'vim-scripts/a.vim'
 endif
+
 " COLORSCHEME
 if count(g:bundle_groups, 'colorscheme')
-  NeoBundle 'altercation/vim-colors-solarized'
   NeoBundle 'tomasr/molokai'
-  NeoBundle 'morhetz/gruvbox'
-  NeoBundle 'sjl/badwolf'
 endif
 
 " automatically load filetype plugins
