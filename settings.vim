@@ -19,7 +19,7 @@ set switchbuf=useopen              " reveal already opened files from the quickf
 set ttyfast                        " smoother changes
 set viminfo='20,\"80               " read/write a .viminfo file, don't store more
 set virtualedit=onemore            " Allow for cursor beyond last character
-set cursorline
+set nocursorline                   " Save from lag on long lines
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 " vertical/horizontal scroll off settings
 if !&scrolloff
@@ -90,8 +90,10 @@ endif
 " default colorscheme
 set background=dark
 set t_Co=256
-let g:rehash256 = 1
 colorscheme molokai
+hi TablineSel      guifg=#455354 guibg=#66D9EF gui=bold
+hi TabLineFill     guifg=#1B1D1E guibg=#1B1D1E
+hi TabLine         guifg=#F8F8F2 guibg=#465457 gui=none
 
 " GUI options
 if GUI()

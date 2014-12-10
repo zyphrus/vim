@@ -4,14 +4,8 @@
 let g:airline_enable_branch=1
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
-let g:airline#unite#vimbufferline_echo = 0
 let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#ctrlp#show_adjacent_modes = 1
-let g:airline#extensions#whitespace#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
 
 let g:airline_section_c = ''
 let g:airline_theme='molokai'
@@ -27,6 +21,14 @@ else
   let g:airline_left_sep = '▶'
   let g:airline_right_sep = '◀'
 endif
+
+" tabline
+let g:tabline_show_tab_num = 1
+let g:tabline_powerline = 1
+let g:tabline_modified = '+'
+let g:tabline_no_name = '[N/A]'
+let g:tabline_bracket_left = ''
+let g:tabline_bracket_right = ' '
 
 " buffergator
 nmap <silent><leader>bb :EasyBufferHorizontal<CR>
@@ -66,6 +68,9 @@ let g:ctrlp_user_command = {
 " coffeescript
 let coffee_indent_keep_current = 1
 " autocmd BufWritePost *.coffee silent make!
+
+" tagbar
+
 
 " easytags
 if OSX()

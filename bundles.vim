@@ -34,8 +34,7 @@ if count(g:bundle_groups, 'general')
   NeoBundle 'kien/ctrlp.vim'
   NeoBundle 'tacahiroy/ctrlp-funky'
   NeoBundle 'troydm/easybuffer.vim'
-  NeoBundle 'Shougo/unite.vim'
-  NeoBundle 'Shougo/unite-outline'
+  NeoBundle 'zyphrus/tabline.vim'
   NeoBundle 'mbbill/undotree'
   NeoBundle 'mhinz/vim-startify'
   NeoBundle 'scrooloose/nerdtree'
@@ -67,7 +66,6 @@ if count(g:bundle_groups, 'devel')
   NeoBundle 'godlygeek/tabular'    " Aligns text
   NeoBundle 'Raimondi/delimitMate' " Auto closes pairs, e.g. {} and ()
   NeoBundle 'kien/rainbow_parentheses.vim'
-  NeoBundle 'tpope/vim-commentary' " Comments out code
   NeoBundle 'scrooloose/syntastic'
   NeoBundle 'tpope/vim-fugitive'
   NeoBundle 'mhinz/vim-signify'
@@ -87,9 +85,7 @@ if count(g:bundle_groups, 'web_devel')
   NeoBundle 'kchmck/vim-coffee-script'
   NeoBundle 'mattn/emmet-vim'
   NeoBundle 'othree/html5.vim'
-  NeoBundle 'tpope/vim-bundler' " bundle (rails) wrapper
   NeoBundle 'tpope/vim-markdown'
-  NeoBundle 'tpope/vim-rails'
   NeoBundle 'vim-ruby/vim-ruby'
 endif
 
