@@ -22,6 +22,10 @@ if has("autocmd")
   " Automatically removing all trailing whitespace
   autocmd BufWritePre * :call StripTrailingWhitespace()
 
+  " Instead of reverting the cursor to the last position in the buffer, we
+  " set it to the first line when editing a git commit message
+  au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
   " Set to normal on FocusLost
   au FocusLost * call feedkeys("\<C-\>\<C-n>") " Return to normal mode on FocustLost
 
@@ -36,6 +40,9 @@ if has("autocmd")
 
   " Workaround broken colour highlighting in Haskell
   au FileType haskell setlocal nospell
+
+  " Resize splits when the window is resized
+  au VimResized * exe "normal! \<c-w>="
 
   " Astyle
   if executable("astyle")

@@ -34,11 +34,11 @@ if count(g:bundle_groups, 'general')
   NeoBundle 'kien/ctrlp.vim'
   NeoBundle 'tacahiroy/ctrlp-funky'
   NeoBundle 'troydm/easybuffer.vim'
-  NeoBundle 'zyphrus/tabline.vim'
   NeoBundle 'mbbill/undotree'
   NeoBundle 'mhinz/vim-startify'
   NeoBundle 'scrooloose/nerdtree'
   NeoBundle 'scrooloose/nerdcommenter'
+  NeoBundle 'zyphrus/tabline.vim'
   NeoBundle 'Shougo/vimproc.vim', {
         \ 'build' : {
         \     'windows' : 'tools\\update-dll-mingw',
@@ -68,10 +68,10 @@ if count(g:bundle_groups, 'devel')
   NeoBundle 'kien/rainbow_parentheses.vim'
   NeoBundle 'scrooloose/syntastic'
   NeoBundle 'tpope/vim-fugitive'
-  NeoBundle 'mhinz/vim-signify'
   NeoBundle 'majutsushi/tagbar'
   NeoBundle 'vim-scripts/swap-parameters'
-
+  NeoBundle 'wting/rust.vim'
+  NeoBundle 'cespare/vim-toml'
   if executable('ctags')
     NeoBundle 'xolox/vim-easytags', {'depends' : 'xolox/vim-misc'}
   endif
@@ -91,8 +91,7 @@ endif
 
 " CPP-IDE
 if count(g:bundle_groups, 'cpp-ide')
-  NeoBundle 'vim-scripts/c.vim'
-  NeoBundle 'vim-scripts/a.vim'
+  NeoBundle 'nacitar/a.vim'
 endif
 
 " COLORSCHEME

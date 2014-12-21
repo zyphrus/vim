@@ -4,7 +4,7 @@
 let g:airline_enable_branch=1
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
-let g:airline#extensions#syntastic#enabled = 1
+
 let g:airline#extensions#ctrlp#show_adjacent_modes = 1
 
 let g:airline_section_c = ''
@@ -13,13 +13,13 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 if !exists('g:airline_powerline_fonts')
-  let g:airline_left_sep = ''
-  let g:airline_right_sep = ''
+  let g:airline_left_sep       = ''
+  let g:airline_right_sep      = ''
   let g:airline_symbols.branch = ''
   let g:airline_symbols.linenr = ''
 else
-  let g:airline_left_sep = '▶'
-  let g:airline_right_sep = '◀'
+  let g:airline_left_sep       = '▶'
+  let g:airline_right_sep      = '◀'
 endif
 
 " tabline
@@ -70,18 +70,20 @@ let coffee_indent_keep_current = 1
 " autocmd BufWritePost *.coffee silent make!
 
 " tagbar
-
+nnoremap <silent> <A-t> :TagbarOpenAutoClose<CR>
 
 " easytags
 if OSX()
   let g:easytags_cmd = '/usr/local/bin/ctags'
 end
-let g:easytags_async = 1
-let g:easytags_file = $HOME.'/.vim/.tags'
-set tags=./.tags;
+let g:easytags_async           = 1
+let g:easytags_file            = $HOME.'/.vim/.tags'
+let g:easytags_opts            = ['--fields=+l']
+let g:easytags_include_members = 1
+set tags=./.tag;
 
 " emmet
-let g:user_emmet_leader_key = '<C-e>'
+let g:user_emmet_leader_key     = '<C-e>'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
@@ -118,15 +120,15 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 " signify
-let g:signify_sign_overwrite = 1
-let g:signify_sign_add = '+'
-let g:signify_sign_change = '!'
-let g:signify_sign_delete = '-'
+let g:signify_sign_overwrite         = 1
+let g:signify_sign_add               = '+'
+let g:signify_sign_change            = '!'
+let g:signify_sign_delete            = '-'
 let g:signify_sign_delete_first_line = '-'
 
 " tagbar
 nmap <C-t> :TagbarOpenAutoClose<CR>
-let g:tagbar_indent = 1
+let g:tagbar_indent      = 1
 let g:tarbar_singleclick = 1
 
 " tabularize
@@ -147,7 +149,7 @@ nmap <silent>U :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle=1
 
 
-" NERDCommenter
+ "NERDCommenter
 nmap <Leader>; <Plug>NERDCommenterToggle
 vmap <leader>; <Plug>NERDCommenterToggle
 
@@ -198,7 +200,7 @@ if WINDOWS()
   imap <expr><Esc> pumvisible() ? "\<C-y>\<Esc>" : "\<Esc>"
   "imap <expr><CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
   " <CR>: close popup
-  function! SmartReturn()
+  function! SmarTrETURN()
     if pumvisible()
       if neosnippet#expandable()
         let expand = "\<Plug>(neosnippet_expand)"
@@ -216,22 +218,22 @@ if WINDOWS()
   if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns = {}
   endif
-  let g:neocomplete#sources#omni#input_patterns.c='[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
-  let g:neocomplete#sources#omni#input_patterns.cpp='[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-  let g:neocomplete#sources#omni#input_patterns.xml='<[^>]*'
-  let g:neocomplete#sources#omni#input_patterns.html='<[^>]*'
-  let g:neocomplete#sources#omni#input_patterns.markdown='<[^>]*'
-  let g:neocomplete#sources#omni#input_patterns.css='^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
-  let g:neocomplete#sources#omni#input_patterns.less='^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
-  let g:neocomplete#sources#omni#input_patterns.javascript='[^. \t]\.\%(\h\w*\)\?'
-  let g:neocomplete#sources#omni#input_patterns.json='[^. \t]\.\%(\h\w*\)\?'
-  let g:neocomplete#sources#omni#input_patterns.python='[^. *\t]\.\h\w*\|\h\w*::'
-  let g:neocomplete#sources#omni#input_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
-  let g:neocomplete#sources#omni#input_patterns.php='[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-  let g:neocomplete#sources#omni#input_patterns.python3='[^. *\t]\.\h\w*\|\h\w*::'
-  let g:neocomplete#sources#omni#input_patterns.go='\h\w*\%.'
-  let g:neocomplete#sources#omni#input_patterns.perl='\h\w*->\h\w*\|\h\w*::'
-  let g:neocomplete#sources#omni#input_patterns.java='\%(\h\w*\|)\)\.'
+  let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
+  let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+  let g:neocomplete#sources#omni#input_patterns.xml = '<[^>]*'
+  let g:neocomplete#sources#omni#input_patterns.html = '<[^>]*'
+  let g:neocomplete#sources#omni#input_patterns.markdown = '<[^>]*'
+  let g:neocomplete#sources#omni#input_patterns.css = '^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
+  let g:neocomplete#sources#omni#input_patterns.less = '^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
+  let g:neocomplete#sources#omni#input_patterns.javascript = '[^. \t]\.\%(\h\w*\)\?'
+  let g:neocomplete#sources#omni#input_patterns.json = '[^. \t]\.\%(\h\w*\)\?'
+  let g:neocomplete#sources#omni#input_patterns.python = '[^. *\t]\.\h\w*\|\h\w*::'
+  let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+  let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+  let g:neocomplete#sources#omni#input_patterns.python3 = '[^. *\t]\.\h\w*\|\h\w*::'
+  let g:neocomplete#sources#omni#input_patterns.go = '\h\w*\%.'
+  let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+  let g:neocomplete#sources#omni#input_patterns.java = '\%(\h\w*\|)\)\.'
 else
   " ultisnips
   let g:UltiSnipsExpandTrigger = "<Tab>"
@@ -240,7 +242,10 @@ else
   let g:UltiSnipsListSnippets="<C-Tab>"
 
   " YouCompleteMe
+  set completeopt-=preview
+  let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_global_ycm_extra_conf.py'
   let g:ycm_register_as_syntastic_checker = 1
+  let g:ycm_confirm_extra_conf = 0
   let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
   let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
   let g:ycm_key_invoke_completion = '<C-Space>'
@@ -270,13 +275,20 @@ if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
 
+" delimitmate
+let delimitMate_matchpairs = "(:),[:],{:}"
+au FileType html,xml let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
+
 " syntastic
 let g:syntastic_enable_balloons = 1
-let g:syntastic_auto_loc_list=2
-let g:syntastic_auto_jump=0
-let g:syntastic_enable_signs=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
+let g:syntastic_auto_loc_list   = 2
+let g:syntastic_auto_jump       = 0
+let g:syntastic_enable_signs    = 1
+let g:syntastic_error_symbol    = '✗'
+let g:syntastic_warning_symbol  = '⚠'
+
+" a.vim
+nmap <C-`> :A<CR>
 
 " Swap parameters
 nmap <leader>sp <esc>=gb<esc>
