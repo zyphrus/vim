@@ -38,7 +38,6 @@ if count(g:bundle_groups, 'general')
   NeoBundle 'mhinz/vim-startify'
   NeoBundle 'scrooloose/nerdtree'
   NeoBundle 'scrooloose/nerdcommenter'
-  NeoBundle 'zyphrus/tabline.vim'
   NeoBundle 'Shougo/vimproc.vim', {
         \ 'build' : {
         \     'windows' : 'tools\\update-dll-mingw',

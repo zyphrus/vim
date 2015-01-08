@@ -96,6 +96,11 @@ nmap <silent> <C-S-tab> :tabprevious<CR>
 nmap <C-n> :tabnew<CR>
 nmap <C-m> :tabclose<CR>
 
+nmap <silent> <A-UP> :tabnext<CR>
+nmap <silent> <A-Down> :tabprevious<CR>
+nmap <silent> <A-Left> :bprevious<CR>
+nmap <silent> <A-Right> :bnext<CR>
+
 " buffers
 nmap <Leader>bd :bdelete<CR>
 nmap <Leader>bn :bnext<CR>

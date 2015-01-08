@@ -6,6 +6,19 @@ let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 
 let g:airline#extensions#ctrlp#show_adjacent_modes = 1
+let g:airline#extensions#tagbar#enabled = 1
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#tab_nr_type = 1
+let g:airline#extensions#tabline#show_tab_nr = 1
+
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+
+
 
 let g:airline_section_c = ''
 let g:airline_theme='molokai'
@@ -22,14 +35,6 @@ else
   let g:airline_right_sep      = '◀'
 endif
 
-" tabline
-let g:tabline_show_tab_num = 1
-let g:tabline_powerline = 1
-let g:tabline_modified = '+'
-let g:tabline_no_name = '[N/A]'
-let g:tabline_bracket_left = ''
-let g:tabline_bracket_right = ' '
-
 " buffergator
 nmap <silent><leader>bb :EasyBufferHorizontal<CR>
 let g:easybuffer_horizontal_height = '15'
@@ -37,6 +42,7 @@ let g:easybuffer_horizontal_height = '15'
 " ctrlp
 let g:ctrlp_cache_dir = $HOME.'/.vim/.ctrlp_cache'
 let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_open_new_file = 't'
 let g:ctrlp_extensions = ['funky']
 nmap <silent>cp :CtrlPMixed<CR>
 nmap <silent>cm :CtrlPMRUFiles<CR>
@@ -149,9 +155,9 @@ nmap <silent>U :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle=1
 
 
- "NERDCommenter
+"NERDCommenter
 nmap <Leader>; <Plug>NERDCommenterToggle
-vmap <leader>; <Plug>NERDCommenterToggle
+vmap ; <Plug>NERDCommenterToggle
 
 " NERDTree
 let g:netrw_liststyle=3
@@ -252,17 +258,17 @@ else
   let g:ycm_min_num_of_chars_for_completion = 3
   let g:ycm_complete_in_strings = 1
   let g:ycm_filetype_blacklist = {
-        \ 'tagbar' : 1,
-        \ 'qf' : 1,
-        \ 'notes' : 1,
+        \ 'tagbar'   : 1,
+        \ 'qf'       : 1,
+        \ 'notes'    : 1,
         \ 'markdown' : 1,
-        \ 'unite' : 1,
-        \ 'text' : 1,
-        \ 'vimwiki' : 1,
-        \ 'pandoc' : 1,
-        \ 'infolog' : 1,
-        \ 'mail' : 1,
-        \ 'plain' : 1
+        \ 'unite'    : 1,
+        \ 'text'     : 1,
+        \ 'vimwiki'  : 1,
+        \ 'pandoc'   : 1,
+        \ 'infolog'  : 1,
+        \ 'mail'     : 1,
+        \ 'plain'    : 1
         \}
   let g:ycm_filetype_specific_completion_to_disable = {
         \ 'gitcommit': 1
