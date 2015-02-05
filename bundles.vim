@@ -14,7 +14,7 @@ if has('vim_starting')
   set sessionoptions-=options
 endif
 
-call neobundle#rc(expand($HOME.'/.vim/bundle/'))
+call neobundle#begin(expand($HOME.'/.vim/bundle/'))
 
 " Let NeoBundle manage bundles
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -44,7 +44,6 @@ if count(g:bundle_groups, 'general')
         \     'cygwin'  : 'make -f make_cygwin.mak',
         \     'mac'     : 'make -f make_mac.mak',
         \     'linux'   : 'make',
-        \     'unix'    : 'gmake',
         \ },}
 endif
 
@@ -104,3 +103,4 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+call neobundle#end()

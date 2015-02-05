@@ -4,7 +4,8 @@ if has("autocmd")
     au BufEnter *.markdown,*.mkd,*.md setl wrap tw=79
     au BufEnter *.json setl ft=javascript
     au BufEnter *.coffee setl sw=2 expandtab
-    au BufEnter *.py setl ts=4 sw=4 sts=4
+    au BufEnter *.py setl ts=4 sw=4 sts=4 expandtab
+    au BufEnter *.rb setl ts=2 sw=2 sts=2 expandtab
     au BufEnter *.php setl ts=4 sw=4 sts=4
     au BufEnter *.js setl ts=2 sw=2 sts=2
     au BufEnter *.html setl ts=4 sw=4 sts=4
