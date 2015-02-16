@@ -1,7 +1,6 @@
 " PLUGINS CONFIG
 
 " airline-case
-let g:airline_enable_branch=1
 let g:airline_detect_modified=1
 let g:airline_detect_paste=1
 
@@ -249,6 +248,11 @@ else
 
   " YouCompleteMe
   set completeopt-=preview
+  let g:ycm_collect_identifiers_from_tags_files = 1
+  let g:ycm_use_ultisnips_completer = 1
+  let g:ycm_seed_identifiers_with_syntax = 1
+  let g:ycm_complete_in_comments = 1
+  let g:ycm_complete_in_strings = 1
   let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_global_ycm_extra_conf.py'
   let g:ycm_register_as_syntastic_checker = 1
   let g:ycm_confirm_extra_conf = 0
@@ -256,7 +260,6 @@ else
   let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
   let g:ycm_key_invoke_completion = '<C-Space>'
   let g:ycm_min_num_of_chars_for_completion = 3
-  let g:ycm_complete_in_strings = 1
   let g:ycm_filetype_blacklist = {
         \ 'tagbar'   : 1,
         \ 'qf'       : 1,
@@ -298,6 +301,17 @@ nmap <C-`> :A<CR>
 
 " Swap parameters
 nmap <leader>sp <esc>=gb<esc>
+
+" surrond.vim
+" from https://code.djangoproject.com/wiki/UsingVimWithDjango
+au FileType htmldjango let b:surround_{char2nr("v")} = "{{ \r }}"
+au FileType htmldjango let b:surround_{char2nr("{")} = "{{ \r }}"
+au FileType htmldjango let b:surround_{char2nr("%")} = "{% \r %}"
+au FileType htmldjango let b:surround_{char2nr("b")} = "{% block \1block name: \1 %}\r{% endblock \1\1 %}"
+au FileType htmldjango let b:surround_{char2nr("i")} = "{% if \1condition: \1 %}\r{% endif %}"
+au FileType htmldjango let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
+au FileType htmldjango let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
+au FileType htmldjango let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS

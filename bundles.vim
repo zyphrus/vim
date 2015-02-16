@@ -70,6 +70,7 @@ if count(g:bundle_groups, 'devel')
   NeoBundle 'vim-scripts/swap-parameters'
   NeoBundle 'wting/rust.vim'
   NeoBundle 'cespare/vim-toml'
+  NeoBundle 'tpope/vim-surround'
   if executable('ctags')
     NeoBundle 'xolox/vim-easytags', {'depends' : 'xolox/vim-misc'}
   endif
@@ -85,6 +86,7 @@ if count(g:bundle_groups, 'web_devel')
   NeoBundle 'othree/html5.vim'
   NeoBundle 'tpope/vim-markdown'
   NeoBundle 'vim-ruby/vim-ruby'
+  NeoBundle 'vim-scripts/django.vim'
 endif
 
 " CPP-IDE
