@@ -113,3 +113,10 @@ function! ToggleColorColumn()
   endif
 endfunction
 map <silent><leader>tc :call ToggleColorColumn()<cr>
+
+function! HtmlDjangoCheck()
+  if filereadable("manage.py")
+    setfiletype htmldjango
+  endif
+endfunction
+au BufEnter *.html call HtmlDjangoCheck()

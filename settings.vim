@@ -17,7 +17,7 @@ set printoptions=paper:a4,syntax:n " controls the default paper size and the pri
 set report=0                       " tell us when anything is changed via :...0
 set switchbuf=useopen              " reveal already opened files from the quickfix window instead of opening new buffers
 set ttyfast                        " smoother changes
-set viminfo='20,\"80                                                                                   " read/write a .viminfo file, don't store more
+set viminfo='20,\"80               " read/write a .viminfo file, don't store more
 set virtualedit=onemore            " Allow for cursor beyond last character
 set nocursorline                   " Save from lag on long lines
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility

@@ -50,8 +50,10 @@ nmap <silent>cl :CtrlPLine<CR>
 nmap <silent>cb :CtrlPBuffer<CR>
 nmap <silent>ct :CtrlPBufTag<CR>
 let g:ctrlp_custom_ignore = {
-      \ 'dir': '\.git$\|\.hg$\|\.svn$',
-      \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+  \ 'dir':  '\v[\/](\.git|\.hg|\.svn|__pycache__)$',
+  \ 'file': '\v\.(exe|so|dll|pyc)$',
+  \ }
+
 " On Windows use "dir" as fallback command.
 if WINDOWS()
   let s:ctrlp_fallback = 'dir %s /-n /b /s /a-d'
@@ -90,7 +92,7 @@ set tags=./.tag;
 " emmet
 let g:user_emmet_leader_key     = '<C-e>'
 let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+au FileType html,htmldjango,xml EmmetInstall
 
 " TaskList
 let g:tlWindowPosition = 1
@@ -313,11 +315,29 @@ au FileType htmldjango let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{
 au FileType htmldjango let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
 au FileType htmldjango let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
 
+" startify
+let g:startify_session_dir = '~/.vim/session'
+let g:startify_change_to_dir = 0
+let g:startify_change_to_vcs_root = 1
+let g:startify_relative_path = 1
+let g:startify_custom_header = map(split(system('date +"%h %d %Y" ; pwd'), '\n'), '"   ". v:val') + ['','']
+let g:ctrlp_reuse_window = 'startify'
+let g:startify_list_order = [
+  \ ['   Most recently used in this directory:'],
+  \ 'dir',
+  \ ['   Most recently used:'],
+  \ 'files',
+  \ ['   Sessions:'],
+  \ 'sessions',
+  \ ['   Bookmarks:'],
+  \ 'bookmarks',
+  \ ]
+
 " Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+autocmd FileType css           setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType haskell       setlocal omnifunc=necoghc#omnifunc
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType javascript    setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python        setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType ruby          setlocal omnifunc=rubycomplete#Complete
+autocmd FileType xml           setlocal omnifunc=xmlcomplete#CompleteTags

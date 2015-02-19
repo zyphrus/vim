@@ -14,6 +14,7 @@ if has("autocmd")
     au BufEnter *.[ch] setl cindent
     au BufEnter *.[ch]pp setl cindent
     au BufEnter Makefile setl ts=4 sts=4 sw=4 noet list
+    au BufEnter *.conf, *.cfg setl ts=4 sw=4 sts=4 expandtab
   augroup END
 
   " when enabling diff for a buffer it should be disabled when the
