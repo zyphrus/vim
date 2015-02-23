@@ -304,8 +304,9 @@ nmap <C-`> :A<CR>
 " Swap parameters
 nmap <leader>sp <esc>=gb<esc>
 
-" surrond.vim
+" surround.vim
 " from https://code.djangoproject.com/wiki/UsingVimWithDjango
+" language specific
 au FileType htmldjango let b:surround_{char2nr("v")} = "{{ \r }}"
 au FileType htmldjango let b:surround_{char2nr("{")} = "{{ \r }}"
 au FileType htmldjango let b:surround_{char2nr("%")} = "{% \r %}"
@@ -314,6 +315,13 @@ au FileType htmldjango let b:surround_{char2nr("i")} = "{% if \1condition: \1 %}
 au FileType htmldjango let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
 au FileType htmldjango let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
 au FileType htmldjango let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
+au FileType htmldjango,html,xml let b:surround_{char2nr("t")} = "<\1tag \1> \r <\/\1\1>"
+" global
+let b:surround_{char2nr("\"")} = "\"\r\""
+let b:surround_{char2nr("'")} = "'\r'"
+let b:surround_{char2nr("(")} = "(\r)"
+
+
 
 " startify
 let g:startify_session_dir = '~/.vim/session'
