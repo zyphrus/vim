@@ -128,8 +128,5 @@ nmap <silent> <leader>ul :t.<CR>Vr-
 " find merge conflict markers
 nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 
-" build
-nmap <silent> <F5> :make<CR>
-
 " CD to current file
-nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>

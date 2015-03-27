@@ -112,7 +112,7 @@ function! ToggleColorColumn()
     highlight clear OverLength
   endif
 endfunction
-map <silent><leader>tc :call ToggleColorColumn()<cr>
+nmap <silent> <leader>tc :call ToggleColorColumn()<cr>
 
 function! HtmlDjangoCheck()
   if filereadable("manage.py")
@@ -120,3 +120,12 @@ function! HtmlDjangoCheck()
   endif
 endfunction
 au BufEnter *.html call HtmlDjangoCheck()
+
+function! SmartBuild()
+  if &ft == 'rust'
+    exec '!cargo build'
+  else
+    exe 'make'
+  endif
+endfunction
+nmap <silent> <F5> <esc>:call SmartBuild()<cr>
