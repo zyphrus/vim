@@ -4,7 +4,6 @@ function! ToggleSpell()
       set spell!
       echo "toggle spell off"
   else
-    set spelllang=en
     set spell!
     echo "toggle spell" &spelllang
   endif

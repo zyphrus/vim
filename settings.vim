@@ -21,6 +21,7 @@ set viminfo='20,\"80               " read/write a .viminfo file, don't store mor
 set virtualedit=onemore            " Allow for cursor beyond last character
 set nocursorline                   " Save from lag on long lines
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
+set spelllang=en                   " set language to English
 
 " vertical/horizontal scroll off settings
 if !&scrolloff

@@ -100,7 +100,10 @@ nmap <silent> <A-UP> :tabnext<CR>
 nmap <silent> <A-Down> :tabprevious<CR>
 nmap <silent> <A-Left> :bprevious<CR>
 nmap <silent> <A-Right> :bnext<CR>
-
+nmap <silent> <A-k> :tabnext<CR>
+nmap <silent> <A-j> :tabprevious<CR>
+nmap <silent> <A-h> :bprevious<CR>
+nmap <silent> <A-l> :bnext<CR>
 " buffers
 nmap <Leader>bd :bdelete<CR>
 nmap <Leader>bn :bnext<CR>

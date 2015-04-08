@@ -51,7 +51,7 @@ nmap <silent>cb :CtrlPBuffer<CR>
 nmap <silent>ct :CtrlPBufTag<CR>
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|\.hg|\.svn|__pycache__)$',
-  \ 'file': '\v\.(exe|so|dll|pyc)$',
+  \ 'file': '\v\.(exe|so|o|class|dll|pyc)$',
   \ }
 
 " On Windows use "dir" as fallback command.
@@ -162,9 +162,9 @@ vmap ; <Plug>NERDCommenterToggle
 
 " NERDTree
 let g:netrw_liststyle=3
-nmap <silent><C-o> :NERDTreeToggle<CR>
+nmap <silent><A-1> :NERDTreeToggle<CR>
 let g:NERDTreeBookmarksFile = expand($HOME.'/.vim/.NERDTreeBookmarks')
-let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinPos = "left"
 let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeWinSize = 40
 let g:NERDTreeChristmasTree = 0
@@ -174,7 +174,7 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeMouseMode = 2
 let NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeIgnore=[
-      \'\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$',
+      \ '\.pyc$', '\.pyo$', '\.class$', '\.obj$',
       \ '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$' ]
 
 " neocomplete
@@ -324,6 +324,8 @@ let b:surround_{char2nr("(")} = "(\r)"
 
 
 " startify
+autocmd User Startified setlocal buftype=
+let NERDTreeHijackNetrw = 0
 let g:startify_session_dir = '~/.vim/session'
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
