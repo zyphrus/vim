@@ -6,6 +6,9 @@ let g:airline_detect_paste=1
 
 let g:airline#extensions#ctrlp#show_adjacent_modes = 1
 let g:airline#extensions#tagbar#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#tagbar#enabled = 1
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -16,8 +19,6 @@ let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#right_sep = ''
 let g:airline#extensions#tabline#right_alt_sep = ''
-
-
 
 let g:airline_section_c = ''
 let g:airline_theme='molokai'
@@ -126,12 +127,6 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-" signify
-let g:signify_sign_overwrite         = 1
-let g:signify_sign_add               = '+'
-let g:signify_sign_change            = '!'
-let g:signify_sign_delete            = '-'
-let g:signify_sign_delete_first_line = '-'
 
 " tagbar
 nmap <C-t> :TagbarOpenAutoClose<CR>
@@ -292,11 +287,14 @@ au FileType html,xml let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 
 " syntastic
 let g:syntastic_enable_balloons = 1
-let g:syntastic_auto_loc_list   = 2
+let g:syntastic_auto_loc_list   = 1
 let g:syntastic_auto_jump       = 0
 let g:syntastic_enable_signs    = 1
 let g:syntastic_error_symbol    = '✗'
 let g:syntastic_warning_symbol  = '⚠'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " a.vim
 nmap <C-`> :A<CR>
@@ -342,6 +340,15 @@ let g:startify_list_order = [
   \ ['   Bookmarks:'],
   \ 'bookmarks',
   \ ]
+
+" vim-gitgutter
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '*'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_modified_removed = '~'
+
+nmap [h <Plug>GitGutterPrevHunk
+nmap ]h <Plug>GitGutterNextHunk
 
 " Enable omni completion.
 autocmd FileType css           setlocal omnifunc=csscomplete#CompleteCSS
