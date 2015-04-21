@@ -77,9 +77,6 @@ let g:ctrlp_user_command = {
 let coffee_indent_keep_current = 1
 " autocmd BufWritePost *.coffee silent make!
 
-" tagbar
-nnoremap <silent> <A-t> :TagbarOpenAutoClose<CR>
-
 " easytags
 if OSX()
   let g:easytags_cmd = '/usr/local/bin/ctags'
@@ -97,8 +94,9 @@ au FileType html,htmldjango,xml EmmetInstall
 
 " TaskList
 let g:tlWindowPosition = 1
-let g:tlRememberPosition = 0
-map <silent> <leader>tl <ESC>:TaskList<CR>
+let g:tlRememberPosition = 1
+let g:tlTokenList = ["FIXME", "TODO", "XXX", "NOTE", "BUG", "CHANGED", "OPTIMIZE"]
+nmap <A-4> <Plug>ToggleTaskList
 
 " fugitive
 nmap <silent> <leader>gs :Gstatus<CR>
@@ -129,7 +127,7 @@ au Syntax * RainbowParenthesesLoadBraces
 
 
 " tagbar
-nmap <C-t> :TagbarOpenAutoClose<CR>
+nmap <A-2> :TagbarOpenAutoClose<CR>
 let g:tagbar_indent      = 1
 let g:tarbar_singleclick = 1
 
@@ -200,7 +198,7 @@ if WINDOWS()
   imap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
   imap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
   imap <expr><Esc> pumvisible() ? "\<C-y>\<Esc>" : "\<Esc>"
-  "imap <expr><CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
+  " imap <expr><CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
   " <CR>: close popup
   function! SmarTrETURN()
     if pumvisible()
@@ -287,8 +285,8 @@ au FileType html,xml let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 
 " syntastic
 let g:syntastic_enable_balloons = 1
-let g:syntastic_auto_loc_list   = 1
-let g:syntastic_auto_jump       = 0
+let g:syntastic_auto_loc_list   = 0
+let g:syntastic_auto_jump       = 3
 let g:syntastic_enable_signs    = 1
 let g:syntastic_error_symbol    = '✗'
 let g:syntastic_warning_symbol  = '⚠'
@@ -318,8 +316,8 @@ au FileType htmldjango,html,xml let b:surround_{char2nr("t")} = "<\1tag \1> \r <
 let b:surround_{char2nr("\"")} = "\"\r\""
 let b:surround_{char2nr("'")} = "'\r'"
 let b:surround_{char2nr("(")} = "(\r)"
-
-
+let b:surround_{char2nr("{")} = "{\r}"
+let b:surround_{char2nr("[")} = "[\r]"
 
 " startify
 autocmd User Startified setlocal buftype=

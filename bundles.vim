@@ -61,9 +61,10 @@ if count(g:bundle_groups, 'devel')
   Plugin 'tpope/vim-fugitive'           " git
   Plugin 'majutsushi/tagbar'
   Plugin 'vim-scripts/swap-parameters'
-  Plugin 'sheerun/vim-polyglot'         " 50+ language pack
   Plugin 'tpope/vim-surround'
   Plugin 'airblade/vim-gitgutter'
+  Plugin 'zyphrus/vim-polyglot' " Languages
+
   if executable('ctags')
     Plugin 'xolox/vim-misc'
     Plugin 'xolox/vim-easytags'
