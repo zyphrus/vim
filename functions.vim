@@ -128,3 +128,15 @@ function! SmartBuild()
   endif
 endfunction
 nmap <silent> <F5> <esc>:call SmartBuild()<cr>
+
+function! GitGutterPrevHunkCenter()
+  exe 'GitGutterPrevHunk'
+  exe 'normal! zz'
+endfunction
+nmap [h :call GitGutterPrevHunkCenter()<cr>
+
+function! GitGutterNextHunkCenter()
+  exe 'GitGutterNextHunk'
+  exe 'normal! zz'
+endfunction
+nmap ]h :call GitGutterNextHunkCenter()<cr>
