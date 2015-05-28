@@ -241,20 +241,20 @@ else
   let g:UltiSnipsJumpBackwardTrigger = "<S-tab>"
   let g:UltiSnipsListSnippets="<C-Tab>"
 
+  let g:UltiSnipsEditSplit="vertical"
+
   " YouCompleteMe
   set completeopt-=preview
   let g:ycm_collect_identifiers_from_tags_files = 1
   let g:ycm_use_ultisnips_completer = 1
   let g:ycm_seed_identifiers_with_syntax = 1
-  let g:ycm_complete_in_comments = 0
-  let g:ycm_complete_in_strings = 1
   let g:ycm_global_ycm_extra_conf = $HOME.'/.vim/ycm_global_extra_conf.py'
   let g:ycm_register_as_syntastic_checker = 1
   let g:ycm_confirm_extra_conf = 1
   let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
   let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
   let g:ycm_key_invoke_completion = '<C-Space>'
-  let g:ycm_min_num_of_chars_for_completion = 3
+  let g:ycm_min_num_of_chars_for_completion = 2
   let g:ycm_filetype_blacklist = {
         \ 'tagbar'   : 1,
         \ 'qf'       : 1,

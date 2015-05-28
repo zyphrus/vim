@@ -51,6 +51,7 @@ if count(g:bundle_groups, 'devel')
     " YouCompleteMe
     Plugin 'Valloric/YouCompleteMe'
     Plugin 'SirVer/ultisnips'
+    Plugin 'honza/vim-snippets'
   endif
   Plugin 'AzizLight/TaskList.vim'
   Plugin 'Yggdroot/indentLine'
