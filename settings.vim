@@ -149,7 +149,7 @@ set display=lastline         " don't display @ with long paragraphs
 set formatoptions=tcroql     " t=text, c=comments, q=format with gq command, o,r=autoinsert comment leader
 set lbr                      " line break
 set nojoinspaces             " Prevents inserting two spaces after punctuation on a join (J)
-set nowrap                   " word wrap
+set wrap                     " word wrap
 set splitbelow               " Puts new split windows to the bottom of the current
 set splitright               " Puts new vsplit windows to the right of the current
 set textwidth=0
