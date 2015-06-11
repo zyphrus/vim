@@ -3,3 +3,5 @@ bundle/*
 .ctrlp_cache
 tags/*
 .tags
+*.pyc
+.netrwhist
