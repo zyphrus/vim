@@ -33,6 +33,7 @@ if count(g:bundle_groups, 'general')
   Plugin 'paranoida/vim-airlineish'
   Plugin 'kien/ctrlp.vim'
   Plugin 'tacahiroy/ctrlp-funky'
+  Plugin 'qinxij/ctrlp-cmdpalette'
   Plugin 'troydm/easybuffer.vim'
   Plugin 'mbbill/undotree'
   Plugin 'mhinz/vim-startify'

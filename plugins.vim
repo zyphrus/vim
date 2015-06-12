@@ -55,6 +55,10 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|o|class|dll|pyc)$',
   \ }
 
+let g:ctrlp_cmdpalette_feedkeys_to_goin_exmode = ';'
+nmap <silent> c; :CtrlPCmdPalette<CR>
+
+
 " On Windows use "dir" as fallback command.
 if WINDOWS()
   let s:ctrlp_fallback = 'dir %s /-n /b /s /a-d'
