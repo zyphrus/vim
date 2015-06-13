@@ -79,6 +79,7 @@ if count(g:bundle_groups, 'web_devel')
   Plugin 'guileen/simple-javascript-indenter'
   Plugin 'mattn/emmet-vim'
   Plugin 'vim-scripts/django.vim'
+  Plugin 'lilydjwg/colorizer'
 endif
 
 " COLORSCHEME
