@@ -363,6 +363,9 @@ let g:gitgutter_sign_modified = '*'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_modified_removed = '~'
 
+" colorizer
+let g:colorizer_nomap = 1
+
 " Enable omni completion.
 autocmd FileType css           setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType haskell       setlocal omnifunc=necoghc#omnifunc
