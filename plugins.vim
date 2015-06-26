@@ -35,51 +35,21 @@ else
   let g:airline_right_sep      = '◀'
 endif
 
-" buffergator
-nmap <silent><leader>bb :EasyBufferHorizontal<CR>
-let g:easybuffer_horizontal_height = '15'
+" unite
+let g:unite_source_history_yank_enable = 1
+let g:unite_prompt='> '
+let g:unite_split_rule = 'botright'
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_selecta'])
+nmap <silent> <C-p> :Unite -start-insert -buffer-name=files file_rec/async<CR>
+nmap <silent>cb :Unite -start-insert -buffer-name=buffers buffer<CR>
+nmap <silent>ct :Unite -start-insert -buffer-name=tabs tab<CR>
+nmap <silent>cf :Unite -start-insert -buffer-name=files file<CR>
+nmap <silent>cr :Unite -start-insert -buffer-name=mru file_mru<CR>
+nmap <silent>cy :Unite -start-insert -buffer-name=yank history/yank<CR>
 
-" ctrlp
-let g:ctrlp_cache_dir = $HOME.'/.vim/.ctrlp_cache'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_open_new_file = 't'
-let g:ctrlp_extensions = ['funky']
-nmap <silent>cp :CtrlPMixed<CR>
-nmap <silent>cm :CtrlPMRUFiles<CR>
-nmap <silent>cf :CtrlPFunky<CR>
-nmap <silent>cl :CtrlPLine<CR>
-nmap <silent>cb :CtrlPBuffer<CR>
-nmap <silent>ct :CtrlPBufTag<CR>
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.git|\.hg|\.svn|__pycache__)$',
-  \ 'file': '\v\.(exe|so|o|class|dll|pyc)$',
-  \ }
-
-let g:ctrlp_cmdpalette_feedkeys_to_goin_exmode = ';'
-nmap <silent> c; :CtrlPCmdPalette<CR>
-
-
-" On Windows use "dir" as fallback command.
-if WINDOWS()
-  let s:ctrlp_fallback = 'dir %s /-n /b /s /a-d'
-elseif executable('ag')
-  let s:ctrlp_fallback = 'ag %s --nocolor -l -g ""'
-elseif executable('ack')
-  let s:ctrlp_fallback = 'ack %s --nocolor -f'
-else
-  let s:ctrlp_fallback = 'find %s -type f'
-endif
-let g:ctrlp_user_command = {
-      \ 'types': {
-      \ 1: ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others'],
-      \ 2: ['.hg', 'hg --cwd %s locate -i .'],
-      \ },
-      \ 'fallback': s:ctrlp_fallback
-      \ }
-
-" coffeescript
-let coffee_indent_keep_current = 1
-" autocmd BufWritePost *.coffee silent make!
+" neomru
+let g:neomru#do_validate = 1
 
 " easytags
 if OSX()
@@ -96,11 +66,11 @@ let g:user_emmet_leader_key     = '<C-e>'
 let g:user_emmet_install_global = 0
 au FileType html,htmldjango,xml EmmetInstall
 
-" TaskList
+" tasklist
 let g:tlWindowPosition = 1
 let g:tlRememberPosition = 1
 let g:tlTokenList = ["FIXME", "TODO", "XXX", "NOTE", "BUG", "CHANGED", "OPTIMIZE"]
-nmap <A-4> <Plug>ToggleTaskList
+nmap <C-l> <Plug>ToggleTaskList
 
 " fugitive
 nmap <silent> <leader>gs :Gstatus<CR>
@@ -120,9 +90,6 @@ nmap <silent> <leader>gg :SignifyToggle<CR>
 let g:indentLine_char = '┆'
 let g:indentLine_faster = 1
 
-" less
-nmap <Leader>css :w <BAR> !lessc % > %:t:r.css<CR><space>
-
 " rainbow parentheses
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
@@ -131,21 +98,9 @@ au Syntax * RainbowParenthesesLoadBraces
 
 
 " tagbar
-nmap <A-2> :TagbarOpenAutoClose<CR>
+nmap <C-t> :TagbarOpenAutoClose<CR>
 let g:tagbar_indent      = 1
 let g:tarbar_singleclick = 1
-
-" tabularize
-vmap <Leader>a=  :Tabularize /=<CR>
-vmap <Leader>a#  :Tabularize /#<CR>
-vmap <Leader>a'  :Tabularize /'<CR>
-vmap <Leader>a"  :Tabularize /"<CR>
-vmap <Leader>a)  :Tabularize /)/r1c1l0<CR>
-vmap <Leader>a== :Tabularize /=/r1c1l0<CR>
-vmap <Leader>a:  :Tabularize /:<CR>
-vmap <Leader>a:: :Tabularize /:\zs<CR>
-vmap <Leader>a,  :Tabularize /,<CR>
-vmap <Leader>a,, :Tabularize /,\zs<CR>
 
 " undotree
 nmap <silent>U :UndotreeToggle<CR>
@@ -153,13 +108,13 @@ nmap <silent>U :UndotreeToggle<CR>
 let g:undotree_SetFocusWhenToggle=1
 
 
-"NERDCommenter
+"nerdcommenter
 nmap <Leader>; <Plug>NERDCommenterToggle
 vmap ; <Plug>NERDCommenterToggle
 
-" NERDTree
+" nerdtree
 let g:netrw_liststyle=3
-nmap <silent><A-1> :NERDTreeToggle<CR>
+nmap <silent> <C-o> :NERDTreeToggle<CR>
 let g:NERDTreeBookmarksFile = expand($HOME.'/.vim/.NERDTreeBookmarks')
 let g:NERDTreeWinPos = "left"
 let g:NERDTreeShowBookmarks = 1
@@ -175,136 +130,81 @@ let g:NERDTreeIgnore=[
       \ '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$' ]
 
 " neocomplete
-let neocomplete_readme=expand('~/.vim/bundle/neocomplete/README.md')
-if WINDOWS()
-  let g:neocomplete#enable_at_startup = 1
-  let g:neocomplete#enable_smart_case = 1
-  let g:neocomplete#enable_auto_delimiter = 1
-  let g:neocomplete#max_list = 15
-  let g:neocomplete#force_overwrite_completefunc = 1
-  "Use honza's snippets.
-  let g:neosnippet#snippets_directory=expand($HOME.'/.vim/bundle/vim-snippets/snippets')
-  " Define keyword.
-  if !exists('g:neocomplete#keyword_patterns')
+set completeopt-=preview
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_auto_delimiter = 1
+let g:neocomplete#max_list = 15
+let g:neocomplete#force_overwrite_completefunc = 1
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
     let g:neocomplete#keyword_patterns = {}
-  endif
-  let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-  " SuperTab like snippets behavior.
-  imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-        \ "\<Plug>(neosnippet_expand_or_jump)"
-        \: pumvisible() ? "\<C-n>" : "\<TAB>"
-  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-        \ "\<Plug>(neosnippet_expand_or_jump)"
-        \: "\<TAB>"
-  " Some convenient mappings
-  imap <expr><Up> pumvisible() ? "\<C-p>" : "\<Up>"
-  imap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-  imap <expr><Down> pumvisible() ? "\<C-n>" : "\<Down>"
-  imap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-  imap <expr><Esc> pumvisible() ? "\<C-y>\<Esc>" : "\<Esc>"
-  " imap <expr><CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
-  " <CR>: close popup
-  function! SmarTrETURN()
-    if pumvisible()
-      if neosnippet#expandable()
-        let expand = "\<Plug>(neosnippet_expand)"
-        return expand . neocomplete#smart_close_popup()
-      else
-        return neocomplete#smart_close_popup()
-      endif
-    else
-      return "\<CR>"
-    endif
-  endfunction
-  " <CR> close popup and save indent or expand snippet
-  imap <expr> <CR> SmartReturn()
-  " Enable heavy omni completion.
-  if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-  endif
-  let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
-  let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-  let g:neocomplete#sources#omni#input_patterns.xml = '<[^>]*'
-  let g:neocomplete#sources#omni#input_patterns.html = '<[^>]*'
-  let g:neocomplete#sources#omni#input_patterns.markdown = '<[^>]*'
-  let g:neocomplete#sources#omni#input_patterns.css = '^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
-  let g:neocomplete#sources#omni#input_patterns.less = '^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
-  let g:neocomplete#sources#omni#input_patterns.javascript = '[^. \t]\.\%(\h\w*\)\?'
-  let g:neocomplete#sources#omni#input_patterns.json = '[^. \t]\.\%(\h\w*\)\?'
-  let g:neocomplete#sources#omni#input_patterns.python = '[^. *\t]\.\h\w*\|\h\w*::'
-  let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-  let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-  let g:neocomplete#sources#omni#input_patterns.python3 = '[^. *\t]\.\h\w*\|\h\w*::'
-  let g:neocomplete#sources#omni#input_patterns.go = '\h\w*\%.'
-  let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-  let g:neocomplete#sources#omni#input_patterns.java = '\%(\h\w*\|)\)\.'
-else
-  " ultisnips
-  let g:UltiSnipsExpandTrigger = "<Tab>"
-  let g:UltiSnipsJumpForwardTrigger = "<Tab>"
-  let g:UltiSnipsJumpBackwardTrigger = "<S-tab>"
-  let g:UltiSnipsListSnippets="<C-Tab>"
-
-  let g:UltiSnipsEditSplit="vertical"
-
-  " YouCompleteMe
-  set completeopt-=preview
-  let g:ycm_collect_identifiers_from_tags_files = 1
-  let g:ycm_use_ultisnips_completer = 1
-  let g:ycm_seed_identifiers_with_syntax = 1
-  let g:ycm_global_ycm_extra_conf = $HOME.'/.vim/ycm_global_extra_conf.py'
-  let g:ycm_register_as_syntastic_checker = 1
-  let g:ycm_confirm_extra_conf = 1
-  let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
-  let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
-  let g:ycm_key_invoke_completion = '<C-Space>'
-  let g:ycm_min_num_of_chars_for_completion = 2
-  let g:ycm_filetype_blacklist = {
-        \ 'tagbar'   : 1,
-        \ 'qf'       : 1,
-        \ 'notes'    : 1,
-        \ 'markdown' : 1,
-        \ 'unite'    : 1,
-        \ 'text'     : 1,
-        \ 'vimwiki'  : 1,
-        \ 'pandoc'   : 1,
-        \ 'infolog'  : 1,
-        \ 'mail'     : 1,
-        \ 'plain'    : 1
-        \}
-  let g:ycm_filetype_specific_completion_to_disable = {
-        \ 'gitcommit': 1
-        \}
-  let g:ycm_semantic_triggers =  {
-    \ 'c' : ['->', '.'],
-    \ 'objc' : ['->', '.'],
-    \ 'ocaml' : ['.', '#'],
-    \ 'cpp,objcpp' : ['->', '.', '::'],
-    \ 'perl' : ['->'],
-    \ 'php' : ['->', '::'],
-    \ 'cs,java,javascript,d,python,perl6,scala,vb,elixir,go' : ['.'],
-    \ 'vim' : ['re![_a-zA-Z]+[_\w]*\.'],
-    \ 'ruby' : ['.', '::'],
-    \ 'lua' : ['.', ':'],
-    \ 'erlang' : [':'],
-    \ 'rust' : ['::', '.'],
-    \}
-
 endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-" For snippet_complete marker.
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
+
+" Some convenient mappings
+imap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
+imap <expr><C-k>  pumvisible() ? "\<C-p>" : "\<C-k>"
+
+imap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
+imap <expr><C-j>  pumvisible() ? "\<C-n>" : "\<C-j>"
+
+imap <expr><Esc> pumvisible() ? "\<C-y>\<Esc>" : "\<Esc>"
+imap <expr><CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
+let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+let g:neocomplete#sources#omni#input_patterns.xml = '<[^>]*'
+let g:neocomplete#sources#omni#input_patterns.html = '<[^>]*'
+let g:neocomplete#sources#omni#input_patterns.markdown = '<[^>]*'
+let g:neocomplete#sources#omni#input_patterns.css = '^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
+let g:neocomplete#sources#omni#input_patterns.less = '^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
+let g:neocomplete#sources#omni#input_patterns.javascript = '[^. \t]\.\%(\h\w*\)\?'
+let g:neocomplete#sources#omni#input_patterns.json = '[^. \t]\.\%(\h\w*\)\?'
+let g:neocomplete#sources#omni#input_patterns.python = '[^. *\t]\.\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+let g:neocomplete#sources#omni#input_patterns.python3 = '[^. *\t]\.\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.go = '\h\w*\%.'
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.java = '\%(\h\w*\|)\)\.'
+
+" neosnippet
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
 if has('conceal')
-  set conceallevel=2 concealcursor=i
+  set conceallevel=2 concealcursor=niv
 endif
 
 " delimitmate
 let delimitMate_matchpairs = "(:),[:],{:}"
-au FileType html,xml let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
+au FileType html,xml,htmldjango let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 
 " syntastic
 let g:syntastic_enable_balloons = 1
 let g:syntastic_auto_loc_list   = 0
-let g:syntastic_auto_jump       = 3
+let g:syntastic_auto_jump       = 0
 let g:syntastic_enable_signs    = 1
 let g:syntastic_error_symbol    = '✗'
 let g:syntastic_warning_symbol  = '⚠'
@@ -312,8 +212,6 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-" a.vim
-nmap <C-`> :A<CR>
 
 " Swap parameters
 nmap <leader>sp <esc>=gb<esc>
@@ -340,12 +238,13 @@ let b:surround_{char2nr("[")} = "[\r]"
 " startify
 autocmd User Startified setlocal buftype=
 let NERDTreeHijackNetrw = 0
+let g:startify_enable_unsafe = 1
 let g:startify_session_dir = '~/.vim/session'
 let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
 let g:startify_relative_path = 1
 let g:startify_custom_header = map(split(system('date +"%h %d %Y" ; pwd'), '\n'), '"   ". v:val') + ['','']
-let g:ctrlp_reuse_window = 'startify'
+let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
 let g:startify_list_order = [
   \ ['   Most recently used in this directory:'],
   \ 'dir',
@@ -364,7 +263,10 @@ let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_modified_removed = '~'
 
 " colorizer
+let g:colorizer_startup = 0
 let g:colorizer_nomap = 1
+let g:colorizer_maxlines = 1000
+nmap <leader>ct :ColorToggle<CR>
 
 " Enable omni completion.
 autocmd FileType css           setlocal omnifunc=csscomplete#CompleteCSS

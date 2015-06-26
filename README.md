@@ -6,16 +6,9 @@
 - Vim (7.3+)
 - ctags
 
-### Mac:
-
-- [Homebrew] - `ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"`
-- [MacVim] - `brew install macvim`
-- [Homesick] - `gem install homesick`
-- [ctags] - `brew install ctags-exuberant`
-
 # Vim
 
-Overview of my vim setup. Sensible defaults!
+Overview of my vim setup.
 
 ## Mappings
 
@@ -23,77 +16,115 @@ Reference to vim mappings.
 
 ### General
 
-- ` ,           ` keyleader.
-- ` <Leader>cl  ` Calculate the value in one line.
-- ` <Leader>cd  ` Switch to the directory of the open buffer.
-- ` <Leader>cfg ` Fast editing of .vimrc.
-- ` <Leader>l   ` Toggle EOL.
-- ` <Leader>/   ` Comment/Uncoment Code.
-- ` <Leader>d   ` Enable/Disable dual mode view.
-- ` <Leader>al  ` Quick aligning to left.
-- ` <Leader>ar  ` Quick aligning to right.
-- ` <Leader>ac  ` Quick aligning to center.
-- ` <Leader>ff  ` Toggle indention mode.
-- ` <Leader>ss  ` Toggle Spell checking
-- ` <Leader>sn  ` Spell checking (Next word)
-- ` <Leader>sp  ` Spell checking (Previews word)
-- ` <Leader>s?  ` Spell checking (Show list)
-- ` <Leader>tw  ` Set text wrapping toggles.
-- ` <Enter>     ` Turn off search highlighting.
-- ` <spacebar>  ` spacebar create/open/close folding.
-- ` <C-TAB>     ` Move to next buffer
-- ` <S-C-TAB>   ` Move to previews buffer
-- ` <TAB>       ` Indent a line
-- ` <S-TAB>     ` Back-Indent a line
-- ` +/-         ` Easy increment/decrement.
-- ` jj          ` Map escape key to jj.
-- ` <Leader>bd  ` Close current buffer
-- ` <Leader>sp  ` Switch order of parameters
+- ` ,           ` key leader
+- ` <leader>ss  ` Session Save
+- ` <leader>sd  ` Session Delete
+- ` <leader>sc  ` Session Close
+- ` <leader>l          ` Toggle white space
+- ` <leader>ht          ` Toggle high lighting
+- ` <leader>hc          ` high light clear
+- ` <leader>fef          ` format entire file
+- ` <leader>al          ` Align left
+- ` <leader>ac          ` Align center
+- ` <leader>ar          ` Align right
+- ` <leader>ew          ` edit new
+- ` <leader>es          ` edit split
+- ` <leader>ev          ` edit vertical
+- ` <leader>et          ` edit tab
+- ` <leader>st          ` Toggle spell check
+- ` <leader>sn          ` misspell next
+- ` <leader>sp          ` misspell previous
+- ` <leader>sa          ` add word to dict
+- ` <leader>s?          ` correct word
+- ` <leader>cd          ` Move cwd to open buffer
+- ` <leader>ul          ` Underline current line with '='
+- ` <leader>fc          ` Find merge conflict
+
+
+- ` ~          ` Twiddle Case (Visual)
+- ` <A-k>          ` Move line up (Visual)
+- ` <A-j>          ` Move line down (Visual)
+- ` <F5>          ` make
+- ` tw          ` tab new
+- ` td          ` tab delete
+- ` <C-tab>` or `tn` Next tab
+- ` <C-shift-tab>` or `tp` Previous tab
+- ` bw          ` Buffer new
+- ` bd          ` Buffer delete
+- ` bn          ` Buffer next
+- ` bp          ` Buffer previous
 
 ### Plugins
 
-- ` <Leader>b  ` buffergator
-- ` <Leader>ca ` calendar
-- ` <Leader>m  ` CtrlPMRU
-- ` <Leader>b  ` CtrlPBuffer
-- ` <Leader>u  ` Gundo
-- ` <C-o>      ` NERDTree
-- ` <Leader>T  ` Tagbar
-- ` <C-e>      ` Emmet
-- ` <C-Space>  ` YouCompleteMe: Display preview window
-- ` <Tab>      ` Ultisnips: Expand snippers
-- ` <C-Tab>    ` Ultisnips: Display list of snippers
+#### Git Gutter
+
+- ` <leader>hn          ` next git hunk
+- ` <leader>hp          ` previous git hunk
+- ` <leader>hs          ` stage git hunk
+- ` <leader>hr          ` revert git hunk
+
+#### Unite
+
+
+- ` <C-p>          ` Open file_rec
+- ` cb          ` Open buffers
+- ` ct          ` Open tab
+- ` cf          ` Open files
+- ` cr          ` Open recent files
+- ` cy          ` Open tank history
+
+#### Emmet
+
+- ` <C-e>        ` leader key
+
+#### Tasklist
+
+- ` <C-l>        ` Toggle Task list
+
+
+#### Fugitive
+
+- `<leader>gs` status
+- `<leader>gd` diff
+- `<leader>gc` commit
+- `<leader>gb` blame
+- `<leader>gl` log
+- `<leader>gp` git push
+- `<leader>gr` read
+- `<leader>gw` write
+- `<leader>ge` edit
+- `<leader>gi` git add -p %
+- `<leader>gg` Signify Toggle
+
+#### Undotree
+
+- `U` Toggle Undo tree
+
+#### nerdcommenter
+
+- `<leader>;` comment line (Normal)
+- `;` comment line(s) (visual)
+
+### nerdtree
+
+- `<C-o>` Toggle nerd tree
+
+#### Tagbar
+
+- `<C-t>` Toggle Tagbar
+
+#### Surround
+
+- `S"` Surround with "
+- `S'` Surround with '
+- `S(` Surround with (
+- `S[` Surround with [
+- `S{` Surround with {
+
+#### Colorizer
+
+- `<leader>ct` Color Toggle
 
 ## Commands
 
 - `:w!` Sudo write!
-
-## Plug-Ins
-
-- [accelerated-smooth-scroll](https://github.com/yonchu/accelerated-smooth-scroll)
-- [airline](https://github.com/bling/vim-airline)
-- [bufferline](https://github.com/bling/vim-bufferline)
-- [calendar]
-- [CtrlP](https://github.com/kien/ctrlp.vim)
-- [CtrlP-funky](https://github.com/tacahiroy/ctrlp-funky)
-- [delimitMate](https://github.com/Raimondi/delimitMate) - Automatic closing of quotes, parenthesis, brackets, etc. \-\-
-- [easyMotion](https://github.com/Lokaltog/vim-easymotion)
-- [IndentLine](https://github.com/Yggdroot/indentLine)
-- [Interactive-replace](https://github.com/hwrod/interactive-replace)
-- [multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
-- [nerdcommenter](https://github.com/scrooloose/nerdcommenter/blob/master/doc/NERD_commenter.txt)
-- [nerdtree](https://github.com/scrooloose/nerdtree/blob/master/doc/NERD_tree.txt)
-- [syntastic](https://github.com/scrooloose/syntastic/blob/master/doc/syntastic.txt)
-- [tabular](https://github.com/godlygeek/tabular/blob/master/doc/Tabular.txt) - Configurable, flexible, intuitive text aligning \-\-
-- [tagbar]
-- [markdown](https://github.com/tpope/vim-markdown)
-- [surround](https://github.com/tpope/vim-surround/blob/master/doc/surround.txt) - Delete, change, and add "surroundings" i.e. parentheses, quotes, and HTML tags \-\-
-- [Ultisnips](https://github.com/SirVer/ultisnips)
-- [undotree](https://github.com/mbbill/undotree) - Graph Vim's undo tree so it is actually usable
-- [YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
-- [vimCalc]
-
-## Additional Packages (Arch Linux)
-
-- ttf-powerline-fonts-git (AUR)
-- neobundle-git (AUR)

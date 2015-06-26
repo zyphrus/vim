@@ -168,11 +168,7 @@ set smartcase       " No ignorecase if Uppercase chars in search
 nohlsearch          " avoid highlighting when reloading vimrc
 
 " Folding
-set foldenable            " enable folding
-set foldlevel=1           " start out with everything folded
-set foldmethod=marker     " detect triple-{ style fold markers
-set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
-set foldtext=MyFoldText() " Which command trigger auto-unfold
+set nofoldenable            " disable folding
 
 " Session
 set sessionoptions=buffers,curdir,folds,tabpages,winsize

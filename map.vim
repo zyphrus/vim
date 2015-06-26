@@ -2,27 +2,13 @@
 " Set mapleader
 let g:mapleader=","
 
-" Toggle paste mode
-nmap <silent> <F4> :set invpaste<CR>:set paste?<CR>
-imap <silent> <F4> <ESC>:set invpaste<CR>:set paste?<CR>
-
 " Session controls
-nmap <leader>sl :SessionList<CR>
-nmap <leader>ss :SessionSave<CR>
-nmap <leader>sc :SessionClose<CR>
-
-" spacebar create/open/close folding
-nmap <silent> <Space> za
-vmap <silent> <Space> zf
+nmap <leader>ss :SSave<CR>
+nmap <leader>sd :SDelete<CR>
+nmap <leader>sc :SClose<CR>
 
 " enable/disable list
 nmap <silent> <Leader>l :set nolist!<CR>
-
-" ,/ turn off search highlighting
-nmap <silent><Leader>/ :nohls<CR>
-
-" Map escape key to jj or <Leader>e
-imap <Leader>ee <ESC>
 
 " Sudo to write
 cmap w!! :w !sudo tee % >/dev/null
@@ -41,9 +27,6 @@ nmap <leader>ew :e <C-R>=expand('%:h').'/'<cr>
 nmap <leader>es :sp <C-R>=expand('%:h').'/'<cr>
 nmap <leader>ev :vsp <C-R>=expand('%:h').'/'<cr>
 nmap <leader>et :tabe <C-R>=expand('%:h').'/'<cr>
-
-" Swap two words
-nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
 
 " Spell commands
 nmap <Leader>sn ]s
@@ -93,37 +76,27 @@ vmap <A-k> :m-2<CR>gv
 " move between tabs
 nmap <silent> <C-tab> :tabnext<CR>
 nmap <silent> <C-S-tab> :tabprevious<CR>
-nmap <C-n> :tabnew<CR>
-nmap <C-m> :tabclose<CR>
 
-nmap <silent> <A-UP> :tabnext<CR>
-nmap <silent> <A-Down> :tabprevious<CR>
-nmap <silent> <A-Left> :bprevious<CR>
-nmap <silent> <A-Right> :bnext<CR>
-nmap <silent> <A-k> :tabnext<CR>
-nmap <silent> <A-j> :tabprevious<CR>
-nmap <silent> <A-h> :bprevious<CR>
-nmap <silent> <A-l> :bnext<CR>
+" tabs
+nmap tw :tabnew<CR>
+nmap tc :tabclose<CR>
+nmap tn :tabnext<CR>
+nmap tp :tabprevious<CR>
+
 " buffers
-nmap <Leader>bd :bdelete<CR>
-nmap <Leader>bn :bnext<CR>
-nmap <Leader>bp :bprevious<CR>
-
-" switch to the directory of the open buffer
-map <Leader>cd :cd %:p:h<cr>
+nmap bd :bdelete<CR>
+nmap bw :bnew<CR>
+nmap bn :bnext<CR>
+nmap bp :bprevious<CR>
 
 " set text wrapping toggles
-nmap <silent>tw :set invwrap<CR>:set wrap?<CR>
-
-" toggle whitespace
-nmap <silent>tt :set list!<CR>
+nmap <silent><leader>wt :set invwrap<CR>:set wrap?<CR>
 
 " toggle hlsearch
-nmap <silent>th :set invhlsearch<CR>:set hlsearch?<CR>
+nmap <silent><leader>ht :set invhlsearch<CR>:set hlsearch?<CR>
 
-" Map <Leader>ff to display all lines with keyword under cursor
-" and ask which one to jump to
-nmap <F12> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+" clear hlseach
+nmap <silent><leader>hc :let @/ = ""<CR>
 
 " Underline the current line with '='
 nmap <silent> <leader>ul :t.<CR>Vr-
@@ -133,5 +106,3 @@ nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 
 " CD to current file
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
-
-unmap <CR>
