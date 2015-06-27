@@ -104,20 +104,20 @@ let g:undotree_SetFocusWhenToggle=1
 
 
 "nerdcommenter
-nmap <Leader>; <Plug>NERDCommenterToggle
+nmap <leader>; <Plug>NERDCommenterToggle
 vmap ; <Plug>NERDCommenterToggle
 
 " vimfiler
 let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_expand_jump_to_first_child = 1
 let g:vimfiler_enable_clipboard = 0
 let g:vimfiler_restore_alternate_file = 1
 let g:vimfiler_tree_indentation = 1
-let g:vimfiler_tree_leaf_icon = "⋮"
+let g:vimfiler_tree_leaf_icon = "┆"
 let g:vimfiler_marked_file_icon = '✓'
-let g:vimfiler_preview_action = 'auto_preview'
 let g:vimfiler_ignore_pattern =
 	\ '^\%(\.git\|\.idea\|\.DS_Store\|\.vagrant\|node_modules\|.*\.pyc\)$'
-nmap <C-o> :VimFiler -toggle<CR>
+nmap <C-o> :VimFiler -toggle -split<CR>
 call vimfiler#custom#profile('default', 'context', {
 	\  'safe': 0,
 	\  'explorer': 1,
