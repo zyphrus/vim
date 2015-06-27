@@ -43,7 +43,8 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_selecta'])
 nmap <silent> <C-p> :Unite -start-insert -buffer-name=files file_rec/async<CR>
 nmap <silent>cb :Unite -start-insert -buffer-name=buffers buffer<CR>
-nmap <silent>ct :Unite -start-insert -buffer-name=tabs tab<CR>
+nmap <silent>ca :Unite -start-insert -buffer-name=tabs tab<CR>
+nmap <silent>ct :Unite -buffer-name=tasklist tasklist<CR>
 nmap <silent>cf :Unite -start-insert -buffer-name=files file<CR>
 nmap <silent>cr :Unite -start-insert -buffer-name=mru file_mru<CR>
 nmap <silent>cy :Unite -start-insert -buffer-name=yank history/yank<CR>
@@ -65,12 +66,6 @@ set tags=./.tag;
 let g:user_emmet_leader_key     = '<C-e>'
 let g:user_emmet_install_global = 0
 au FileType html,htmldjango,xml EmmetInstall
-
-" tasklist
-let g:tlWindowPosition = 1
-let g:tlRememberPosition = 1
-let g:tlTokenList = ["FIXME", "TODO", "XXX", "NOTE", "BUG", "CHANGED", "OPTIMIZE"]
-nmap <C-l> <Plug>ToggleTaskList
 
 " fugitive
 nmap <silent> <leader>gs :Gstatus<CR>
@@ -112,22 +107,29 @@ let g:undotree_SetFocusWhenToggle=1
 nmap <Leader>; <Plug>NERDCommenterToggle
 vmap ; <Plug>NERDCommenterToggle
 
-" nerdtree
-let g:netrw_liststyle=3
-nmap <silent> <C-o> :NERDTreeToggle<CR>
-let g:NERDTreeBookmarksFile = expand($HOME.'/.vim/.NERDTreeBookmarks')
-let g:NERDTreeWinPos = "left"
-let g:NERDTreeShowBookmarks = 1
-let g:NERDTreeWinSize = 40
-let g:NERDTreeChristmasTree = 0
-let g:NERDTreeCaseSensitiveSort = 1
-let g:NERDTreeQuitOnOpen = 1
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeMouseMode = 2
-let NERDTreeAutoDeleteBuffer=1
-let g:NERDTreeIgnore=[
-      \ '\.pyc$', '\.pyo$', '\.class$', '\.obj$',
-      \ '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$' ]
+" vimfiler
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_enable_clipboard = 0
+let g:vimfiler_restore_alternate_file = 1
+let g:vimfiler_tree_indentation = 1
+let g:vimfiler_tree_leaf_icon = "⋮"
+let g:vimfiler_marked_file_icon = '✓'
+let g:vimfiler_preview_action = 'auto_preview'
+let g:vimfiler_ignore_pattern =
+	\ '^\%(\.git\|\.idea\|\.DS_Store\|\.vagrant\|node_modules\|.*\.pyc\)$'
+nmap <C-o> :VimFiler -toggle<CR>
+call vimfiler#custom#profile('default', 'context', {
+	\  'safe': 0,
+	\  'explorer': 1,
+	\  'auto_expand': 1,
+	\  'no_quit': 0
+	\ })
+
+autocmd FileType vimfiler call s:vimfiler_settings()
+function! s:vimfiler_settings()
+	setlocal nonumber
+	nmap <buffer> <C-r>  <Plug>(vimfiler_redraw_screen)
+endfunction
 
 " neocomplete
 set completeopt-=preview

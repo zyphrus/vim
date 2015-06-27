@@ -30,11 +30,12 @@ if count(g:bundle_groups, 'general')
   NeoBundle 'bling/vim-airline'
   NeoBundle 'mbbill/undotree'
   NeoBundle 'mhinz/vim-startify'
-  NeoBundle 'scrooloose/nerdtree'
   NeoBundle 'scrooloose/nerdcommenter'
   NeoBundle 'Stormherz/tablify'
   NeoBundle 'Shougo/unite.vim'
+  NeoBundle 'zyphrus/unite-tasklist'
   NeoBundle 'Shougo/neomru.vim'
+  NeoBundle 'Shougo/vimfiler.vim'
   NeoBundle 'Shougo/vimproc.vim', {
         \ 'build' : {
         \     'windows' : 'tools\\update-dll-mingw',
@@ -51,7 +52,6 @@ if count(g:bundle_groups, 'devel')
   NeoBundle 'Shougo/neocomplete'
   NeoBundle 'Shougo/neosnippet'
   NeoBundle 'Shougo/neosnippet-snippets'
-  NeoBundle 'AzizLight/TaskList.vim'
   NeoBundle 'Yggdroot/indentLine'
   NeoBundle 'Raimondi/delimitMate'         " Auto closes pairs, e.g. {} and ()
   NeoBundle 'kien/rainbow_parentheses.vim'

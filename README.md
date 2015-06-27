@@ -32,8 +32,8 @@ Reference to vim mappings.
 - ` <leader>ev          ` edit vertical
 - ` <leader>et          ` edit tab
 - ` <leader>st          ` Toggle spell check
-- ` <leader>sn          ` misspell next
-- ` <leader>sp          ` misspell previous
+- ` <leader>sn          ` next misspelled word
+- ` <leader>sp          ` previous misspelled word
 - ` <leader>sa          ` add word to dict
 - ` <leader>s?          ` correct word
 - ` <leader>cd          ` Move cwd to open buffer
@@ -68,7 +68,8 @@ Reference to vim mappings.
 
 - ` <C-p>          ` Open file_rec
 - ` cb          ` Open buffers
-- ` ct          ` Open tab
+- ` ct          ` Open tasklist
+- ` ca          ` Open tab
 - ` cf          ` Open files
 - ` cr          ` Open recent files
 - ` cy          ` Open tank history
@@ -76,10 +77,6 @@ Reference to vim mappings.
 #### Emmet
 
 - ` <C-e>        ` leader key
-
-#### Tasklist
-
-- ` <C-l>        ` Toggle Task list
 
 
 #### Fugitive
@@ -105,9 +102,8 @@ Reference to vim mappings.
 - `<leader>;` comment line (Normal)
 - `;` comment line(s) (visual)
 
-### nerdtree
-
-- `<C-o>` Toggle nerd tree
+### VimFiler
+- `<C-o>` Toggle vimfiler
 
 #### Tagbar
 
