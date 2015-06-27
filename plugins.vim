@@ -48,6 +48,7 @@ nmap <silent>ct :Unite -buffer-name=tasklist tasklist<CR>
 nmap <silent>cf :Unite -start-insert -buffer-name=files file<CR>
 nmap <silent>cr :Unite -start-insert -buffer-name=mru file_mru<CR>
 nmap <silent>cy :Unite -start-insert -buffer-name=yank history/yank<CR>
+nmap <silent>c; :Unite -start-insert -buffer-name=commands command<CR>
 
 " neomru
 let g:neomru#do_validate = 1

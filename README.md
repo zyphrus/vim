@@ -67,12 +67,13 @@ Reference to vim mappings.
 
 
 - ` <C-p>          ` Open file_rec
-- ` cb          ` Open buffers
-- ` ct          ` Open tasklist
-- ` ca          ` Open tab
-- ` cf          ` Open files
-- ` cr          ` Open recent files
-- ` cy          ` Open tank history
+- ` <leader>cb          ` Open buffers
+- ` <leader>ct          ` Open tasklist
+- ` <leader>ca          ` Open tab
+- ` <leader>cf          ` Open files
+- ` <leader>cr          ` Open recent files
+- ` <leader>cy          ` Open yank history
+- ` <leader>c;          ` Open command list
 
 #### Emmet
 
