@@ -1,14 +1,8 @@
 " PLUGINS CONFIG
 
 " airline-case
-let g:airline_detect_modified=1
-let g:airline_detect_paste=1
-
-let g:airline#extensions#ctrlp#show_adjacent_modes = 1
-let g:airline#extensions#tagbar#enabled = 1
-let g:airline#extensions#syntastic#enabled = 1
+let g:airline_extensions = ['branch', 'tabline']
 let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#tagbar#enabled = 1
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -40,6 +34,10 @@ let g:unite_source_history_yank_enable = 1
 let g:unite_prompt='> '
 let g:unite_split_rule = 'botright'
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#custom#source(
+	      \ 'file_rec,file_rec/async', 'matchers',
+	      \ ['matcher_fuzzy', 'matcher_hide_hidden_files','converter_relative_word',
+	      \  'matcher_hide_current_file', 'matcher_project_ignore_files'])
 call unite#filters#sorter_default#use(['sorter_selecta'])
 nmap <silent> <C-p> :Unite -start-insert -buffer-name=files file_rec/async<CR>
 nmap <silent>cb :Unite -start-insert -buffer-name=buffers buffer<CR>
@@ -264,6 +262,8 @@ let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '*'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_modified_removed = '~'
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
 
 " colorizer
 let g:colorizer_startup = 0

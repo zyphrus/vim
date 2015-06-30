@@ -37,6 +37,9 @@ if has("autocmd")
   " preceding line best in a plugin but here for now.
   au BufNewFile,BufRead *.coffee set filetype=coffee
 
+  " forces markdown for .md files
+  au BufNewFile,BufReadPost *.md set filetype=markdown
+
   " Workaround vim-commentary for Haskell
   au FileType haskell setlocal commentstring=--\ %s
 

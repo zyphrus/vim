@@ -22,10 +22,10 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Plugin Groups
 " List only the plugin groups you will use
 if !exists('g:bundle_groups')
-  let g:bundle_groups=['general', 'devel', 'web_devel', 'colorscheme']
+  let g:bundle_groups=['general', 'devel', 'web_devel', 'colorscheme', 'syntax']
 endif
 
-" GENERAL
+" general
 if count(g:bundle_groups, 'general')
   NeoBundle 'bling/vim-airline'
   NeoBundle 'mbbill/undotree'
@@ -47,7 +47,7 @@ if count(g:bundle_groups, 'general')
         \ }
 endif
 
-" DEVELOPER
+" developer
 if count(g:bundle_groups, 'devel')
   NeoBundle 'Shougo/neocomplete'
   NeoBundle 'Shougo/neosnippet'
@@ -60,22 +60,44 @@ if count(g:bundle_groups, 'devel')
   NeoBundle 'tpope/vim-surround'
   NeoBundle 'tpope/vim-fugitive'     " git
   NeoBundle 'airblade/vim-gitgutter'
-  NeoBundle 'zyphrus/vim-polyglot' " Languages
   if executable('ctags')
     NeoBundle 'xolox/vim-misc'
     NeoBundle 'xolox/vim-easytags'
   endif
 endif
 
-" WEB
+" web
 if count(g:bundle_groups, 'web_devel')
   NeoBundle 'guileen/simple-javascript-indenter'
   NeoBundle 'mattn/emmet-vim'
-  NeoBundle 'vim-scripts/django.vim'
   NeoBundle 'lilydjwg/colorizer'
 endif
 
-" COLORSCHEME
+" syntax
+if count(g:bundle_groups, 'syntax')
+  NeoBundle 'kergoth/aftersyntaxc.vim'
+  NeoBundle 'octol/vim-cpp-enhanced-highlight'
+  NeoBundle 'vim-jp/vim-cpp'
+  NeoBundle 'kchmck/vim-coffee-script'
+  NeoBundle 'JulesWang/css.vim'
+  NeoBundle 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
+  NeoBundle 'tpope/vim-git'
+  NeoBundle 'othree/html5.vim'
+  NeoBundle 'pangloss/vim-javascript'
+  NeoBundle 'leshill/vim-json'
+  NeoBundle 'groenewege/vim-less'
+  NeoBundle 'tpope/vim-markdown'
+  NeoBundle 'mutewinter/nginx.vim'
+  NeoBundle 'mitsuhiko/vim-python-combined'
+  NeoBundle 'vim-ruby/vim-ruby'
+  NeoBundle 'rust-lang/rust.vim'
+  NeoBundle 'cespare/vim-toml'
+  NeoBundle 'kurayama/systemd-vim-syntax'
+  NeoBundle 'leafgarland/typescript-vim'
+  NeoBundle 'vim-scripts/django.vim'
+endif
+
+" colorscheme
 if count(g:bundle_groups, 'colorscheme')
   NeoBundle 'tomasr/molokai'
 endif
