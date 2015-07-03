@@ -35,14 +35,14 @@ let g:unite_prompt='> '
 let g:unite_split_rule = 'botright'
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#custom#source(
-	      \ 'file_rec,file_rec/async', 'matchers',
-	      \ ['matcher_fuzzy', 'matcher_hide_hidden_files','converter_relative_word',
-	      \  'matcher_hide_current_file', 'matcher_project_ignore_files'])
+      \ 'file_rec,file_rec/async', 'matchers',
+      \ ['matcher_fuzzy', 'matcher_hide_hidden_files','converter_relative_word',
+      \  'matcher_hide_current_file', 'matcher_project_ignore_files'])
 call unite#filters#sorter_default#use(['sorter_selecta'])
 nmap <silent> <C-p> :Unite -start-insert -buffer-name=files file_rec/async<CR>
 nmap <silent>cb :Unite -start-insert -buffer-name=buffers buffer<CR>
-nmap <silent>ca :Unite -start-insert -buffer-name=tabs tab<CR>
-nmap <silent>ct :Unite -buffer-name=tasklist tasklist<CR>
+nmap <silent>ct :Unite -start-insert -buffer-name=tabs tab<CR>
+nmap <silent>cl :Unite -buffer-name=tasklist tasklist<CR>
 nmap <silent>cf :Unite -start-insert -buffer-name=files file<CR>
 nmap <silent>cr :Unite -start-insert -buffer-name=mru file_mru<CR>
 nmap <silent>cy :Unite -start-insert -buffer-name=yank history/yank<CR>
@@ -115,83 +115,71 @@ let g:vimfiler_tree_indentation = 1
 let g:vimfiler_tree_leaf_icon = "┆"
 let g:vimfiler_marked_file_icon = '✓'
 let g:vimfiler_ignore_pattern =
-	\ '^\%(\.git\|\.idea\|\.DS_Store\|\.vagrant\|node_modules\|.*\.pyc\)$'
+      \ '^\%(\.git\|\.idea\|\.DS_Store\|\.vagrant\|node_modules\|.*\.pyc\)$'
 nmap <C-o> :VimFiler -toggle -split<CR>
 call vimfiler#custom#profile('default', 'context', {
-	\  'safe': 0,
-	\  'explorer': 1,
-	\  'auto_expand': 1,
-	\  'no_quit': 0
-	\ })
+      \  'safe': 0,
+      \  'explorer': 1,
+      \  'auto_expand': 1,
+      \  'no_quit': 0
+      \ })
 
 autocmd FileType vimfiler call s:vimfiler_settings()
 function! s:vimfiler_settings()
-	setlocal nonumber
-	nmap <buffer> <C-r>  <Plug>(vimfiler_redraw_screen)
+  setlocal nonumber
+  nmap <buffer> <C-r>  <Plug>(vimfiler_redraw_screen)
 endfunction
 
-" neocomplete
+" ultisnips
+let g:UltiSnipsExpandTrigger = "<Tab>"
+let g:UltiSnipsJumpForwardTrigger = "<Tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<S-tab>"
+let g:UltiSnipsListSnippets="<C-Tab>"
+
+let g:UltiSnipsEditSplit="vertical"
+
+" YouCompleteMe
 set completeopt-=preview
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#enable_auto_delimiter = 1
-let g:neocomplete#max_list = 15
-let g:neocomplete#force_overwrite_completefunc = 1
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)"
-\: "\<TAB>"
-
-" Some convenient mappings
-imap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
-imap <expr><C-k>  pumvisible() ? "\<C-p>" : "\<C-k>"
-
-imap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
-imap <expr><C-j>  pumvisible() ? "\<C-n>" : "\<C-j>"
-
-imap <expr><Esc> pumvisible() ? "\<C-y>\<Esc>" : "\<Esc>"
-imap <expr><CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
-let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-let g:neocomplete#sources#omni#input_patterns.xml = '<[^>]*'
-let g:neocomplete#sources#omni#input_patterns.html = '<[^>]*'
-let g:neocomplete#sources#omni#input_patterns.markdown = '<[^>]*'
-let g:neocomplete#sources#omni#input_patterns.css = '^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
-let g:neocomplete#sources#omni#input_patterns.less = '^\s\+\w+\|\w+[):;]?\s\+\|[@!]'
-let g:neocomplete#sources#omni#input_patterns.javascript = '[^. \t]\.\%(\h\w*\)\?'
-let g:neocomplete#sources#omni#input_patterns.json = '[^. \t]\.\%(\h\w*\)\?'
-let g:neocomplete#sources#omni#input_patterns.python = '[^. *\t]\.\h\w*\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-let g:neocomplete#sources#omni#input_patterns.python3 = '[^. *\t]\.\h\w*\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.go = '\h\w*\%.'
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-let g:neocomplete#sources#omni#input_patterns.java = '\%(\h\w*\|)\)\.'
-
-" neosnippet
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_use_ultisnips_completer = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_global_ycm_extra_conf = $HOME.'/.vim/ycm_global_extra_conf.py'
+let g:ycm_register_as_syntastic_checker = 1
+let g:ycm_confirm_extra_conf = 1
+let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+let g:ycm_key_invoke_completion = '<C-Space>'
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar'   : 1,
+      \ 'qf'       : 1,
+      \ 'notes'    : 1,
+      \ 'markdown' : 1,
+      \ 'unite'    : 1,
+      \ 'text'     : 1,
+      \ 'vimwiki'  : 1,
+      \ 'pandoc'   : 1,
+      \ 'infolog'  : 1,
+      \ 'mail'     : 1,
+      \ 'plain'    : 1
+      \}
+let g:ycm_filetype_specific_completion_to_disable = {
+      \ 'gitcommit': 1
+      \}
+let g:ycm_semantic_triggers =  {
+      \ 'c' : ['->', '.'],
+      \ 'objc' : ['->', '.'],
+      \ 'ocaml' : ['.', '#'],
+      \ 'cpp,objcpp' : ['->', '.', '::'],
+      \ 'perl' : ['->'],
+      \ 'php' : ['->', '::'],
+      \ 'cs,java,javascript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+      \ 'vim' : ['re![_a-zA-Z]+[_\w]*\.'],
+      \ 'ruby' : ['.', '::'],
+      \ 'lua' : ['.', ':'],
+      \ 'erlang' : [':'],
+      \ 'rust' : ['::', '.'],
+      \}
 
 " For conceal markers.
 if has('conceal')
@@ -247,15 +235,15 @@ let g:startify_relative_path = 1
 let g:startify_custom_header = map(split(system('date +"%h %d %Y" ; pwd'), '\n'), '"   ". v:val') + ['','']
 let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
 let g:startify_list_order = [
-  \ ['   Most recently used in this directory:'],
-  \ 'dir',
-  \ ['   Most recently used:'],
-  \ 'files',
-  \ ['   Sessions:'],
-  \ 'sessions',
-  \ ['   Bookmarks:'],
-  \ 'bookmarks',
-  \ ]
+      \ ['   Most recently used in this directory:'],
+      \ 'dir',
+      \ ['   Most recently used:'],
+      \ 'files',
+      \ ['   Sessions:'],
+      \ 'sessions',
+      \ ['   Bookmarks:'],
+      \ 'bookmarks',
+      \ ]
 
 " vim-gitgutter
 let g:gitgutter_sign_added = '+'

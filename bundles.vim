@@ -49,9 +49,16 @@ endif
 
 " developer
 if count(g:bundle_groups, 'devel')
-  NeoBundle 'Shougo/neocomplete'
-  NeoBundle 'Shougo/neosnippet'
-  NeoBundle 'Shougo/neosnippet-snippets'
+  NeoBundle 'Valloric/YouCompleteMe', {
+        \ 'build'      : {
+        \ 'mac'     : './install.sh --clang-completer --system-libclang --omnisharp-completer --gocode-completer',
+        \ 'unix'    : './install.sh --clang-completer --system-libclang --omnisharp-completer --gocode-completer',
+        \ 'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer --gocode-completer',
+        \ 'cygwin'  : './install.sh --clang-completer --system-libclang --omnisharp-completer --gocode-completer'
+        \ }
+        \ }
+  NeoBundle 'SirVer/ultisnips'
+  NeoBundle 'honza/vim-snippets'
   NeoBundle 'Yggdroot/indentLine'
   NeoBundle 'Raimondi/delimitMate'         " Auto closes pairs, e.g. {} and ()
   NeoBundle 'kien/rainbow_parentheses.vim'
@@ -59,6 +66,7 @@ if count(g:bundle_groups, 'devel')
   NeoBundle 'majutsushi/tagbar'
   NeoBundle 'tpope/vim-surround'
   NeoBundle 'tpope/vim-fugitive'     " git
+  NeoBundle 'tpope/vim-endwise'
   NeoBundle 'airblade/vim-gitgutter'
   if executable('ctags')
     NeoBundle 'xolox/vim-misc'
@@ -95,6 +103,7 @@ if count(g:bundle_groups, 'syntax')
   NeoBundle 'kurayama/systemd-vim-syntax'
   NeoBundle 'leafgarland/typescript-vim'
   NeoBundle 'vim-scripts/django.vim'
+  NeoBundle 'raichoo/haskell-vim'
 endif
 
 " colorscheme

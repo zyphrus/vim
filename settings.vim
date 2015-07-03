@@ -157,7 +157,7 @@ set wrapscan                 " Searches wrap around end of file
 let &sbr = nr2char(8618).' ' " Show ↪ at the beginning of wrapped lines
 
 " Search
-set hlsearch        " highlight all matches...
+set nohlsearch      " highlight all matches...
 set ignorecase      " select case-insenitiv search
 set incsearch       " ...and also during entering the pattern
 set magic           " change the way backslashes are used in search patterns
