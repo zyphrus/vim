@@ -50,10 +50,17 @@ nmap <silent> <leader>tc :call ToggleColorColumn()<cr>
 
 function! HtmlDjangoCheck()
   if filereadable("manage.py")
-    setfiletype htmldjango
+    setfiletype htmldjango.html
   endif
 endfunction
 au BufEnter *.html call HtmlDjangoCheck()
+
+function! PyDjangoCheck()
+  if filereadable("manage.py")
+    setfiletype python.django
+  endif
+endfunction
+au BufEnter *.py call PyDjangoCheck()
 
 function! SmartBuild()
   if &ft == 'rust'

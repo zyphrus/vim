@@ -65,10 +65,6 @@ nmap <silent> # #zz
 nmap <silent> g* g*zz
 nmap <silent> g# g#zz
 
-" Circular windows navigation
-nmap <C-j> <c-w>w
-nmap <C-k> <c-w>W
-
 " Drag Current Line/s Vertically
 vmap <A-j> :m'>+<CR>gv
 vmap <A-k> :m-2<CR>gv
@@ -85,9 +81,20 @@ nmap tp :tabprevious<CR>
 
 " buffers
 nmap bd :bdelete<CR>
-nmap bw :bnew<CR>
 nmap bn :bnext<CR>
 nmap bp :bprevious<CR>
+
+" windows movement
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+" windows re-arrangement
+nmap <A-h> <C-w>H
+nmap <A-j> <C-w>J
+nmap <A-k> <C-w>K
+nmap <A-l> <C-w>L
 
 " set text wrapping toggles
 nmap <silent><leader>wt :set invwrap<CR>:set wrap?<CR>
