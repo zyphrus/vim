@@ -93,7 +93,8 @@ endif
 " default colorscheme
 set background=dark
 set t_Co=256
-colorscheme molokai
+" colorscheme molokai
+colorscheme hybrid
 hi TablineSel      guifg=#455354 guibg=#66D9EF gui=bold
 hi TabLineFill     guifg=#1B1D1E guibg=#1B1D1E
 hi TabLine         guifg=#F8F8F2 guibg=#465457 gui=none
@@ -107,7 +108,7 @@ if GUI()
   elseif OSX()
     set gfn=Menlo:h13
   else
-    set gfn=Literation\ Mono\ Powerline\ 11
+    set gfn=Droid\ Sans\ Mono\ Dotted\ for\ Powerline\ 10
   endif
   set guioptions-=m
   nmap <F8> :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
@@ -137,6 +138,7 @@ if has('persistent_undo')
 endif
 
 " Text, tab and indent related
+set expandtab
 set autoindent    " Keep the indent when creating a new line
 set copyindent    " Copy the previous indentation on autoindent
 set shiftwidth=4  " Number of spaces to use in each autoindent step
