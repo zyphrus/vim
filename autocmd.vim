@@ -3,13 +3,13 @@ if has("autocmd")
   augroup filetypedetect
     au BufEnter *.markdown,*.mkd,*.md setl wrap tw=79 spell
     au BufEnter *.json setl ft=javascript
-    au BufEnter *.coffee setl sw=2 expandtab
-    au BufEnter *.py setl ts=4 sw=4 sts=4 expandtab
-    au BufEnter *.rb setl ts=2 sw=2 sts=2 expandtab
+    au BufEnter *.coffee setl sw=2
+    au BufEnter *.py setl ts=4 sw=4 sts=4
+    au BufEnter *.rb setl ts=2 sw=2 sts=2
     au BufEnter *.php setl ts=4 sw=4 sts=4
-    au BufEnter *.js setl ts=2 sw=2 sts=2 expandtab
-    au BufEnter *.html setl ts=2 sw=2 sts=2 expandtab
-    au BufEnter *.vim setl ts=2 sw=2 sts=2 expandtab
+    au BufEnter *.js setl ts=2 sw=2 sts=2
+    au BufEnter *.html setl ts=2 sw=2 sts=2
+    au BufEnter *.vim setl ts=2 sw=2 sts=2
     au BufEnter *.tex setl wrap tw=79 fo=tcqor
     au BufEnter *.[ch] setl cindent
     au BufEnter *.[ch]pp setl cindent

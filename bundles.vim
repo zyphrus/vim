@@ -109,6 +109,7 @@ endif
 " colorscheme
 if count(g:bundle_groups, 'colorscheme')
   NeoBundle 'tomasr/molokai'
+  NeoBundle 'w0ng/vim-hybrid'
 endif
 
 call neobundle#end()
