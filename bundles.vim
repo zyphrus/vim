@@ -1,23 +1,12 @@
 " PLUGINS BUNDLE
-let neobundle_readme=expand($HOME.'/.vim/bundle/neobundle.vim/README.md')
-if !filereadable(neobundle_readme)
-  echo "Installing NeoBundle.."
-  echo ""
-  silent !mkdir -p $HOME/.vim/bundle
-  silent !git clone https://github.com/Shougo/neobundle.vim $HOME/.vim/bundle/neobundle.vim/
+" Bootstrap plug.vim
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
 endif
 
-" Required:
-if has('vim_starting')
-  set nocompatible
-  set runtimepath+=$HOME/.vim/bundle/neobundle.vim/
-  set sessionoptions-=options
-endif
-
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage bundles
-NeoBundleFetch 'Shougo/neobundle.vim'
+call plug#begin(expand('~/.vim/bundle/'))
 
 " Plugin Groups
 " List only the plugin groups you will use
@@ -27,94 +16,75 @@ endif
 
 " general
 if count(g:bundle_groups, 'general')
-  NeoBundle 'bling/vim-airline'
-  NeoBundle 'mbbill/undotree'
-  NeoBundle 'mhinz/vim-startify'
-  NeoBundle 'scrooloose/nerdcommenter'
-  NeoBundle 'Stormherz/tablify'
-  NeoBundle 'Shougo/unite.vim'
-  NeoBundle 'zyphrus/unite-tasklist'
-  NeoBundle 'Shougo/neomru.vim'
-  NeoBundle 'Shougo/vimfiler.vim'
-  NeoBundle 'Shougo/vimproc.vim', {
-        \ 'build' : {
-        \     'windows' : 'tools\\update-dll-mingw',
-        \     'cygwin' : 'make -f make_cygwin.mak',
-        \     'mac' : 'make -f make_mac.mak',
-        \     'linux' : 'make',
-        \     'unix' : 'gmake',
-        \    },
-        \ }
+  Plug 'bling/vim-airline'
+  Plug 'mbbill/undotree'
+  Plug 'mhinz/vim-startify'
+  Plug 'scrooloose/nerdcommenter'
+  Plug 'Stormherz/tablify'
+  Plug 'Shougo/unite.vim'
+  Plug 'zyphrus/unite-tasklist'
+  Plug 'Shougo/neomru.vim'
+  Plug 'Shougo/vimfiler.vim'
+  Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 endif
 
 " developer
 if count(g:bundle_groups, 'devel')
-  NeoBundle 'Valloric/YouCompleteMe', {
-        \ 'build'      : {
-        \ 'mac'     : './install.sh --clang-completer --system-libclang --omnisharp-completer --gocode-completer',
-        \ 'unix'    : './install.sh --clang-completer --system-libclang --omnisharp-completer --gocode-completer',
-        \ 'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer --gocode-completer',
-        \ 'cygwin'  : './install.sh --clang-completer --system-libclang --omnisharp-completer --gocode-completer'
-        \ }
-        \ }
-  NeoBundle 'SirVer/ultisnips'
-  NeoBundle 'honza/vim-snippets'
-  NeoBundle 'Yggdroot/indentLine'
-  NeoBundle 'Raimondi/delimitMate'         " Auto closes pairs, e.g. {} and ()
-  NeoBundle 'kien/rainbow_parentheses.vim'
-  NeoBundle 'scrooloose/syntastic'         " syntax checker
-  NeoBundle 'majutsushi/tagbar'
-  NeoBundle 'tpope/vim-surround'
-  NeoBundle 'tpope/vim-fugitive'     " git
-  NeoBundle 'tpope/vim-endwise'
-  NeoBundle 'airblade/vim-gitgutter'
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer --system-libclang --omnisharp-completer --gocode-completer' }
+  Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+  Plug 'Yggdroot/indentLine'
+  Plug 'Raimondi/delimitMate'         " Auto closes pairs, e.g. {} and ()
+  Plug 'kien/rainbow_parentheses.vim'
+  Plug 'scrooloose/syntastic'         " syntax checker
+  Plug 'majutsushi/tagbar'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-fugitive'     " git
+  Plug 'tpope/vim-endwise'
+  Plug 'airblade/vim-gitgutter'
   if executable('ctags')
-    NeoBundle 'xolox/vim-misc'
-    NeoBundle 'xolox/vim-easytags'
+    Plug 'xolox/vim-misc'
+    Plug 'xolox/vim-easytags'
   endif
 endif
 
 " web
 if count(g:bundle_groups, 'web_devel')
-  NeoBundle 'guileen/simple-javascript-indenter'
-  NeoBundle 'mattn/emmet-vim'
-  NeoBundle 'lilydjwg/colorizer'
+  Plug 'guileen/simple-javascript-indenter', {'for': 'javascript'}
+  Plug 'mattn/emmet-vim'
+  Plug 'lilydjwg/colorizer', {'for': ['css', 'html']}
 endif
 
 " syntax
 if count(g:bundle_groups, 'syntax')
-  NeoBundle 'kergoth/aftersyntaxc.vim'
-  NeoBundle 'octol/vim-cpp-enhanced-highlight'
-  NeoBundle 'vim-jp/vim-cpp'
-  NeoBundle 'kchmck/vim-coffee-script'
-  NeoBundle 'JulesWang/css.vim'
-  NeoBundle 'docker/docker' , {'rtp': '/contrib/syntax/vim/'}
-  NeoBundle 'tpope/vim-git'
-  NeoBundle 'othree/html5.vim'
-  NeoBundle 'pangloss/vim-javascript'
-  NeoBundle 'leshill/vim-json'
-  NeoBundle 'groenewege/vim-less'
-  NeoBundle 'tpope/vim-markdown'
-  NeoBundle 'mutewinter/nginx.vim'
-  NeoBundle 'mitsuhiko/vim-python-combined'
-  NeoBundle 'vim-ruby/vim-ruby'
-  NeoBundle 'rust-lang/rust.vim'
-  NeoBundle 'cespare/vim-toml'
-  NeoBundle 'kurayama/systemd-vim-syntax'
-  NeoBundle 'leafgarland/typescript-vim'
-  NeoBundle 'vim-scripts/django.vim'
-  NeoBundle 'raichoo/haskell-vim'
+  Plug 'kergoth/aftersyntaxc.vim', {'for': ['c', 'cpp']}
+  Plug 'octol/vim-cpp-enhanced-highlight', {'for': 'cpp'}
+  Plug 'vim-jp/vim-cpp', {'for': 'cpp'}
+  Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
+  Plug 'JulesWang/css.vim', {'for': 'css'}
+  Plug 'tpope/vim-git', {'for': 'git'}
+  Plug 'othree/html5.vim', {'for': 'html'}
+  Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+  Plug 'leshill/vim-json', {'for': ['json', 'javascript']}
+  Plug 'groenewege/vim-less', {'for': 'less'}
+  Plug 'tpope/vim-markdown', {'for': 'markdown'}
+  Plug 'mutewinter/nginx.vim', {'for': 'nginx'}
+  Plug 'mitsuhiko/vim-python-combined', {'for': 'python'}
+  Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
+  Plug 'rust-lang/rust.vim', {'for': 'rust'}
+  Plug 'cespare/vim-toml', {'for': 'toml'}
+  Plug 'kurayama/systemd-vim-syntax', {'for': 'systemd'}
+  Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
+  Plug 'vim-scripts/django.vim', {'for': 'django'}
+  Plug 'raichoo/haskell-vim', {'for': 'haskell'}
 endif
 
 " colorscheme
 if count(g:bundle_groups, 'colorscheme')
-  NeoBundle 'tomasr/molokai'
-  NeoBundle 'w0ng/vim-hybrid'
+  Plug 'tomasr/molokai'
+  Plug 'w0ng/vim-hybrid'
 endif
 
-call neobundle#end()
+call plug#end()
 
 " automatically load filetype plugins
 filetype plugin indent on
-
-NeoBundleCheck
