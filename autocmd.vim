@@ -29,6 +29,7 @@ if has("autocmd")
   " set it to the first line when editing a git commit message
   au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
+  au FileType gitcommit setl tw=72 spell
   " Set to normal on FocusLost
   au FocusLost * call feedkeys("\<C-\>\<C-n>") " Return to normal mode on FocustLost
 
