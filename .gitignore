@@ -1,6 +1,8 @@
 bundle/
 .undofile/
-.ctrlp_cache
+session/
+!session/.keep
+autoload/
 tags/*
 .tags
 *.pyc

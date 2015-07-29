@@ -115,7 +115,7 @@ Reference to vim mappings.
 - `S"` Surround with "
 - `S'` Surround with '
 - `S(` Surround with (
-- `S[` Surround with [
+- `S[` Surround with \[
 - `S{` Surround with {
 
 #### Colorizer
