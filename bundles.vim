@@ -11,7 +11,7 @@ call plug#begin(expand('~/.vim/bundle/'))
 " Plugin Groups
 " List only the plugin groups you will use
 if !exists('g:bundle_groups')
-  let g:bundle_groups=['general', 'devel', 'web_devel', 'colorscheme', 'syntax']
+  let g:bundle_groups=['general', 'writting', 'devel', 'web_devel', 'colorscheme', 'syntax']
 endif
 
 " general
@@ -54,27 +54,32 @@ if count(g:bundle_groups, 'web_devel')
   Plug 'lilydjwg/colorizer', {'for': ['css', 'html']}
 endif
 
+" writting
+if count(g:bundle_groups, 'writting')
+  Plug 'vim-pandoc/vim-pandoc'
+  Plug 'vim-pandoc/vim-pandoc-syntax'
+endif
+
 " syntax
 if count(g:bundle_groups, 'syntax')
   Plug 'kergoth/aftersyntaxc.vim', {'for': ['c', 'cpp']}
   Plug 'octol/vim-cpp-enhanced-highlight', {'for': 'cpp'}
   Plug 'vim-jp/vim-cpp', {'for': 'cpp'}
-  Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
+  Plug 'kchmck/vim-coffee-script'
   Plug 'JulesWang/css.vim', {'for': 'css'}
-  Plug 'tpope/vim-git', {'for': 'git'}
+  Plug 'tpope/vim-git'
   Plug 'othree/html5.vim', {'for': 'html'}
   Plug 'pangloss/vim-javascript', {'for': 'javascript'}
   Plug 'leshill/vim-json', {'for': ['json', 'javascript']}
   Plug 'groenewege/vim-less', {'for': 'less'}
-  Plug 'tpope/vim-markdown', {'for': 'markdown'}
-  Plug 'mutewinter/nginx.vim', {'for': 'nginx'}
+  Plug 'mutewinter/nginx.vim'
   Plug 'mitsuhiko/vim-python-combined', {'for': 'python'}
   Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
   Plug 'rust-lang/rust.vim', {'for': 'rust'}
   Plug 'cespare/vim-toml', {'for': 'toml'}
-  Plug 'kurayama/systemd-vim-syntax', {'for': 'systemd'}
+  Plug 'kurayama/systemd-vim-syntax'
   Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
-  Plug 'vim-scripts/django.vim', {'for': 'django'}
+  Plug 'vim-scripts/django.vim'
   Plug 'raichoo/haskell-vim', {'for': 'haskell'}
 endif
 

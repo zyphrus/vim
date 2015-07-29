@@ -259,6 +259,9 @@ let g:colorizer_nomap = 1
 let g:colorizer_maxlines = 1000
 nmap <leader>ct :ColorToggle<CR>
 
+" pandoc-syntax
+let g:pandoc#syntax#conceal#use = 0
+
 " Enable omni completion.
 autocmd FileType css           setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType haskell       setlocal omnifunc=necoghc#omnifunc
