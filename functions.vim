@@ -82,3 +82,8 @@ function! GitGutterNextHunkCenter()
   exe 'normal! zz'
 endfunction
 nmap <leader>hp :call GitGutterNextHunkCenter()<cr>
+
+function! VimConfigUpdate()
+  !(cd $HOME/.vim ; git pull)
+endfunction
+command! -nargs=0 -bar VimConfigUpdate call VimConfigUpdate()
