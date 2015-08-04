@@ -19,20 +19,21 @@ if count(g:bundle_groups, 'general')
   Plug 'bling/vim-airline'
   Plug 'mbbill/undotree'
   Plug 'mhinz/vim-startify'
-  Plug 'scrooloose/nerdcommenter'
   Plug 'Stormherz/tablify'
   Plug 'Shougo/unite.vim'
   Plug 'zyphrus/unite-tasklist'
   Plug 'Shougo/neomru.vim'
   Plug 'Shougo/vimfiler.vim'
+  Plug 'Shougo/vimshell.vim'
   Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 endif
 
 " developer
 if count(g:bundle_groups, 'devel')
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer --system-libclang --omnisharp-completer --gocode-completer' }
+  Plug 'Shougo/neocomplete'
   Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
   Plug 'Yggdroot/indentLine'
+  Plug 'scrooloose/nerdcommenter'
   Plug 'Raimondi/delimitMate'         " Auto closes pairs, e.g. {} and ()
   Plug 'kien/rainbow_parentheses.vim'
   Plug 'scrooloose/syntastic'         " syntax checker
@@ -88,6 +89,7 @@ if count(g:bundle_groups, 'colorscheme')
   Plug 'tomasr/molokai'
   Plug 'w0ng/vim-hybrid'
 endif
+
 
 call plug#end()
 
