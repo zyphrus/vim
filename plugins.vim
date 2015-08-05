@@ -141,8 +141,8 @@ let g:vimfiler_tree_indentation = 1
 let g:vimfiler_tree_leaf_icon = "┆"
 let g:vimfiler_marked_file_icon = '✓'
 let g:vimfiler_ignore_pattern =
-      \ '^\%(\.git\|\.idea\|\.DS_Store\|\.vagrant\|node_modules\|.*\.pyc\)$'
-nmap <C-o> :VimFiler -status -project -split -toggle -winwidth=40<CR>
+      \ '^\%(\..*\|node_modules\|.*\.pyc\)$'
+nmap <C-o> :VimFiler -buffer-name=VimFiler -status -project -split -toggle -winwidth=30<CR>
 
 call vimfiler#custom#profile('default', 'context', {
       \  'safe': 0,
