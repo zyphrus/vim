@@ -172,6 +172,13 @@ nohlsearch          " avoid highlighting when reloading vimrc
 " Folding
 set nofoldenable            " disable folding
 
+
+
+imap OA <up>
+imap OB <down>
+imap OC <right>
+imap OD <left>
+
 " Session
 set sessionoptions=buffers,curdir,folds,tabpages,winsize
 let s:sessiondir  = expand("~/.vim/sessions", 1)
