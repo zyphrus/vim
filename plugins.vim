@@ -197,7 +197,7 @@ imap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
 imap <expr><C-k>  pumvisible() ? "\<C-p>" : "\<C-k>"
 
 imap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
-imap <expr><C-j>  pumvisible() ? "\<C-n>" : "\<C-j>"
+"imap <expr><C-j>  pumvisible() ? "\<C-n>" : "\<C-j>"
 
 imap <expr><Esc> pumvisible() ? "\<C-y>\<Esc>" : "\<Esc>"
 imap <expr><CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
