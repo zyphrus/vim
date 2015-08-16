@@ -114,4 +114,7 @@ nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 " CD to current file
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
+" toggle relative number
+nmap <silent> <leader>rt :set relativenumber!<CR>
+
 " setl ts=2 tw=2 sts=2
