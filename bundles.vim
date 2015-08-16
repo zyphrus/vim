@@ -59,6 +59,7 @@ endif
 if count(g:bundle_groups, 'writting')
   Plug 'vim-pandoc/vim-pandoc'
   Plug 'vim-pandoc/vim-pandoc-syntax'
+  Plug 'lervag/vimtex'
 endif
 
 " syntax

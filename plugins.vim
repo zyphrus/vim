@@ -300,6 +300,10 @@ nmap <leader>ct :ColorToggle<CR>
 " pandoc-syntax
 let g:pandoc#syntax#conceal#use = 0
 
+" vimtex
+let g:vimtex_enabled = 1
+let g:vimtex_fold_enabled = 0
+
 " Enable omni completion.
 autocmd FileType css           setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType haskell       setlocal omnifunc=necoghc#omnifunc
