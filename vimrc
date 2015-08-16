@@ -25,3 +25,5 @@ source $HOME/.vim/map.vim
 source $HOME/.vim/plugins.vim
 source $HOME/.vim/functions.vim
 source $HOME/.vim/autocmd.vim
+
+" setl ts=2 tw=2 sts=2

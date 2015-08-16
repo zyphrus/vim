@@ -2,7 +2,7 @@
 " Bootstrap plug.vim
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall
 endif
 
@@ -96,3 +96,5 @@ call plug#end()
 
 " automatically load filetype plugins
 filetype plugin indent on
+
+" setl ts=2 tw=2 sts=2

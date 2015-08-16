@@ -312,3 +312,5 @@ autocmd FileType javascript    setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python        setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType ruby          setlocal omnifunc=rubycomplete#Complete
 autocmd FileType xml           setlocal omnifunc=xmlcomplete#CompleteTags
+
+" setl ts=2 tw=2 sts=2

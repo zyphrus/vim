@@ -1,8 +1,8 @@
 " FUNCTIONS
 function! ToggleSpell()
   if &spell
-      set spell!
-      echo "toggle spell off"
+    set spell!
+    echo "toggle spell off"
   else
     set spell!
     echo "toggle spell" &spelllang
@@ -87,3 +87,5 @@ function! VimConfigUpdate()
   !(cd $HOME/.vim ; git pull)
 endfunction
 command! -nargs=0 -bar VimConfigUpdate call VimConfigUpdate()
+
+" setl ts=2 tw=2 sts=2
