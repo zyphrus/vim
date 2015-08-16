@@ -30,7 +30,6 @@ else
 endif
 
 " unite
-let g:unite_source_history_yank_enable = 1
 let g:unite_prompt='> '
 let g:unite_split_rule = 'botright'
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -45,7 +44,6 @@ nmap <silent>ct :Unite -start-insert -buffer-name=tabs tab<CR>
 nmap <silent>cl :Unite -buffer-name=tasklist tasklist<CR>
 nmap <silent>cf :Unite -start-insert -buffer-name=files file<CR>
 nmap <silent>cr :Unite -start-insert -buffer-name=mru file_mru<CR>
-nmap <silent>cy :Unite -start-insert -buffer-name=yank history/yank<CR>
 nmap <silent>c; :Unite -start-insert -buffer-name=commands command<CR>
 
 " vimshell
@@ -128,6 +126,9 @@ let g:undotree_SetFocusWhenToggle=1
 
 
 "nerdcommenter
+let g:NERDCreateDefaultMappings = 0
+let g:NERDSpaceDelims = 1
+let g:NERDRemoveExtraSpaces = 1
 nmap <leader>; <Plug>NERDCommenterToggle
 vmap ; <Plug>NERDCommenterToggle
 
@@ -184,23 +185,24 @@ if !exists('g:neocomplete#keyword_patterns')
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)"
-      \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)"
-      \: "\<TAB>"
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+endfunction
 
-" Some convenient mappings
-imap <expr> <Up> pumvisible() ? "\<C-p>" : "\<Up>"
-imap <expr><C-k>  pumvisible() ? "\<C-p>" : "\<C-k>"
+" <TAB>: completion.
+inoremap <expr><TAB> pumvisible() ? neocomplete#close_popup() : "<TAB>"
 
-imap <expr> <Down> pumvisible() ? "\<C-n>" : "\<Down>"
-"imap <expr><C-j>  pumvisible() ? "\<C-n>" : "\<C-j>"
-
-imap <expr><Esc> pumvisible() ? "\<C-y>\<Esc>" : "\<Esc>"
-imap <expr><CR> pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+" C-Space
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-@> <C-Space>
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
