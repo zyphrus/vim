@@ -75,13 +75,13 @@ function! GitGutterPrevHunkCenter()
   exe 'GitGutterPrevHunk'
   exe 'normal! zz'
 endfunction
-nmap <leader>hn :call GitGutterPrevHunkCenter()<cr>
+nmap <leader>hp :call GitGutterPrevHunkCenter()<cr>
 
 function! GitGutterNextHunkCenter()
   exe 'GitGutterNextHunk'
   exe 'normal! zz'
 endfunction
-nmap <leader>hp :call GitGutterNextHunkCenter()<cr>
+nmap <leader>hn :call GitGutterNextHunkCenter()<cr>
 
 function! VimConfigUpdate()
   !(cd $HOME/.vim ; git pull)
