@@ -172,12 +172,8 @@ nohlsearch          " avoid highlighting when reloading vimrc
 " Folding
 set nofoldenable            " disable folding
 
-
-
-imap OA <up>
-imap OB <down>
-imap OC <right>
-imap OD <left>
+" Mapping timout
+set notimeout
 
 " Session
 set sessionoptions=buffers,curdir,folds,tabpages,winsize
