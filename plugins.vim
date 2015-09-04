@@ -273,7 +273,7 @@ let g:startify_change_to_dir = 0
 let g:startify_change_to_vcs_root = 1
 let g:startify_relative_path = 1
 let g:startify_custom_header = map(split(system('date +"%h %d %Y" ; pwd'), '\n'), '"   ". v:val') + ['','']
-let g:startify_custom_footer = [''] + map(split(system('fortune -s'), '\n'), '" ". v:val')
+let g:startify_custom_footer = [''] + map(split(system('fortune -s'), '\n'), '"   ". v:val')
 let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
 let g:startify_list_order = [
       \ ['   Most recently used in this directory:'],
