@@ -46,6 +46,7 @@ if count(g:bundle_groups, 'devel')
     Plug 'xolox/vim-misc'
     Plug 'xolox/vim-easytags'
   endif
+  Plug 'phildawes/racer', {'for': 'rust', 'do': 'cargo build --relealse'}
 endif
 
 " web
@@ -87,7 +88,6 @@ endif
 
 " colorscheme
 if count(g:bundle_groups, 'colorscheme')
-  Plug 'tomasr/molokai'
   Plug 'w0ng/vim-hybrid'
 endif
 

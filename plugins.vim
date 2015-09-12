@@ -295,9 +295,9 @@ let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 
 " colorizer
-let g:colorizer_startup = 0
 let g:colorizer_nomap = 1
 let g:colorizer_maxlines = 1000
+autocmd FileType css nmap <silent> <leader>ct :ColorToggle<ESC>
 
 " pandoc-syntax
 let g:pandoc#syntax#conceal#use = 0
@@ -305,6 +305,10 @@ let g:pandoc#syntax#conceal#use = 0
 " vimtex
 let g:vimtex_enabled = 1
 let g:vimtex_fold_enabled = 0
+
+" racer
+let g:racer_cmd = $HOME."/.vim/bundle/racer/target/release/racer"
+let $RUST_SRC_PATH=$HOME."/Code/git/rust/src/"
 
 " Enable omni completion.
 autocmd FileType css           setlocal omnifunc=csscomplete#CompleteCSS
