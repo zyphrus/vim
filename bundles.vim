@@ -47,6 +47,7 @@ if count(g:bundle_groups, 'devel')
     Plug 'xolox/vim-easytags'
   endif
   Plug 'phildawes/racer', {'for': 'rust', 'do': 'cargo build --relealse'}
+  Plug 'davidhalter/jedi-vim', {'for': 'python'}
 endif
 
 " web
@@ -54,6 +55,8 @@ if count(g:bundle_groups, 'web_devel')
   Plug 'guileen/simple-javascript-indenter', {'for': 'javascript'}
   Plug 'mattn/emmet-vim'
   Plug 'lilydjwg/colorizer', {'for': ['css', 'html']}
+  Plug 'tpope/vim-bundler', {'for': ['ruby', 'eruby']}
+  Plug 'tpope/vim-rails', {'for': ['ruby', 'eruby']}
 endif
 
 " writting
@@ -77,7 +80,7 @@ if count(g:bundle_groups, 'syntax')
   Plug 'groenewege/vim-less', {'for': 'less'}
   Plug 'mutewinter/nginx.vim'
   Plug 'mitsuhiko/vim-python-combined', {'for': 'python'}
-  Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
+  Plug 'vim-ruby/vim-ruby', {'for': ['ruby', 'eruby']}
   Plug 'rust-lang/rust.vim', {'for': 'rust'}
   Plug 'cespare/vim-toml', {'for': 'toml'}
   Plug 'kurayama/systemd-vim-syntax'

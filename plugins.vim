@@ -310,6 +310,20 @@ let g:vimtex_fold_enabled = 0
 let g:racer_cmd = $HOME."/.vim/bundle/racer/target/release/racer"
 let $RUST_SRC_PATH=$HOME."/Code/git/rust/src/"
 
+" jedi
+let g:jedi#goto_command = "<leader>pd"
+let g:jedi#goto_assignments_command = "<leader>pg"
+let g:jedi#goto_definitions_command = ""
+let g:jedi#completions_command = ""
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>pn"
+let g:jedi#rename_command = "<leader>pr"
+
+" ruby
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+
 " Enable omni completion.
 autocmd FileType css           setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType haskell       setlocal omnifunc=necoghc#omnifunc
