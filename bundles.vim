@@ -20,6 +20,7 @@ if count(g:bundle_groups, 'general')
   Plug 'mbbill/undotree'
   Plug 'mhinz/vim-startify'
   Plug 'Stormherz/tablify'
+  Plug 'godlygeek/tabular'
   Plug 'Shougo/unite.vim'
   Plug 'zyphrus/unite-tasklist'
   Plug 'Shougo/neomru.vim'
@@ -46,7 +47,7 @@ if count(g:bundle_groups, 'devel')
     Plug 'xolox/vim-misc'
     Plug 'xolox/vim-easytags'
   endif
-  Plug 'phildawes/racer', {'for': 'rust', 'do': 'cargo build --relealse'}
+  Plug 'phildawes/racer', {'do': 'cargo build --release' } | Plug 'racer-rust/vim-racer', {'for': 'rust'}
   Plug 'davidhalter/jedi-vim', {'for': 'python'}
 endif
 
@@ -87,6 +88,7 @@ if count(g:bundle_groups, 'syntax')
   Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
   Plug 'vim-scripts/django.vim'
   Plug 'raichoo/haskell-vim', {'for': 'haskell'}
+  Plug 'avakhov/vim-yaml', {'for': 'yaml'}
 endif
 
 " colorscheme
