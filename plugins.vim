@@ -318,6 +318,8 @@ let g:jedi#completions_command = ""
 let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "<leader>pn"
 let g:jedi#rename_command = "<leader>pr"
+let g:jedi#popup_on_dot = 0
+let g:jedi#auto_vim_configuration = 0
 
 " ruby
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
