@@ -1,17 +1,59 @@
 snippet ifl "if let"
-if let ${1:Some}(${2:var}) = ${2:option} {
+if let ${1:Some}(${2:var}) = ${3:option} {
 	${0}
 }
 endsnippet
 
-snippet whilel "while let"
-while let ${1:Some}(${2:var}) = ${2:option} {
+snippet whl "while let"
+while let ${1:Some}(${2:var}) = ${3:option} {
 	${0}
 }
 endsnippet
 
-snippet pfn "pub fn"
+snippet wh "while"
+while ${1} {
+	${0}
+}
+endsnippet
+
+snippet fnp "pub fn"
+/// $1
 pub fn ${1:func}() {
+	${0}
+}
+endsnippet
+
+snippet struct "struct"
+/// $1
+struct ${1:Name} {
+	${0},
+}
+endsnippet
+
+snippet enum "enum"
+/// $1
+enum ${1:Name} {
+	${0},
+}
+endsnippet
+
+snippet mod "module"
+/// $1
+mod ${1} {
+	${0}
+}
+endsnippet
+
+snippet modp "pub module"
+/// $1
+pub mod ${1} {
+	${0}
+}
+endsnippet
+
+snippet modt "test module"
+#[cfg(test)]
+mod ${1:test} {
 	${0}
 }
 endsnippet
