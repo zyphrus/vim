@@ -82,7 +82,7 @@ if count(g:bundle_groups, 'syntax')
   Plug 'mutewinter/nginx.vim'
   Plug 'mitsuhiko/vim-python-combined', {'for': 'python'}
   Plug 'vim-ruby/vim-ruby', {'for': ['ruby', 'eruby']}
-  Plug 'rust-lang/rust.vim', {'for': 'rust'}
+  Plug 'rust-lang/rust.vim'
   Plug 'cespare/vim-toml', {'for': 'toml'}
   Plug 'kurayama/systemd-vim-syntax'
   Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
