@@ -101,5 +101,3 @@ call plug#end()
 
 " automatically load filetype plugins
 filetype plugin indent on
-
-" setl ts=2 tw=2 sts=2

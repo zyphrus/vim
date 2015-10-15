@@ -87,5 +87,3 @@ function! VimConfigUpdate()
   !(cd $HOME/.vim ; git pull)
 endfunction
 command! -nargs=0 -bar VimConfigUpdate call VimConfigUpdate()
-
-" setl ts=2 tw=2 sts=2

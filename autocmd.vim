@@ -68,5 +68,3 @@ if has("autocmd")
     command! -bang Qa qa<bang>
   endif
 endif
-
-" setl ts=2 tw=2 sts=2
